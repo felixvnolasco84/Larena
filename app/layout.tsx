@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
+import { MantonicoExtraLight } from "@/styles/fonts";
+import FooterComponent from "@/components/Footer/FooterComponent";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="es-Mx">
+      <body className={MantonicoExtraLight.className}>
+        <div className="text-[#424D5E]">
+          <main>{children}</main>
+          <Toaster />
+        </div>
+        <FooterComponent />
+      </body>
     </html>
   );
 }
