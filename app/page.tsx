@@ -29,14 +29,14 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="mx-auto flex w-11/12 flex-col justify-between 2xl:container lg:flex-row">
+      <div className="mx-auto flex w-11/12 flex-col justify-between 2xl:container lg:flex-row lg:gap-4 xl:gap-0">
         <h1
           className={`${GiordanoGoldSerif.className} text-3xl xl:text-4xl 2xl:text-5xl text-left 2xl:leading-[55px] w-full lg:w-6/12 max-w-[742px]`}
         >
           Larena, where the golden sands meet the endless skies of San José del
           Cabo.
         </h1>
-        <div className="flex w-full flex-col gap-8 lg:w-6/12 lg:gap-16">
+        <div className="flex w-full flex-col gap-8 lg:w-6/12 xl:gap-16">
           <p className="max-w-[835px] text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:leading-[40px]">
             Located within the exclusive Campestre community in San José del
             Cabo, at the southern tip of the Baja California Peninsula, Larena

@@ -65,7 +65,7 @@ const services: Service[] = [
 export default function FeaturedServicesCarousel() {
   return (
     <div className="relative bg-[#424D5E] lg:pb-24">
-      <div className="absolute left-0 top-0 h-1/6 w-full bg-white lg:h-1/6 xl:h-2/6 2xl:h-1/2"></div>
+      <div className="absolute left-0 top-0 h-1/6 w-full bg-[#f5f5f5] lg:h-1/6 xl:h-2/6 2xl:h-1/2"></div>
       <Carousel
         opts={{
           align: "start",
@@ -75,7 +75,7 @@ export default function FeaturedServicesCarousel() {
           {services.map((service, index) => (
             <CarouselItem key={index} className="basis-full md:basis-1/2">
               <Card className="aspect-square border-none bg-transparent">
-                <CardHeader className="relative h-4/6">
+                <CardHeader className="relative mb-12 h-4/6">
                   <Image
                     src={service.image}
                     alt="Rombo"
@@ -84,7 +84,7 @@ export default function FeaturedServicesCarousel() {
                   />
                 </CardHeader>
 
-                <CardContent className="flex h-max flex-col items-start justify-between gap-4 p-3 text-[#EFEEED] lg:flex-row lg:p-6">
+                <CardContent className="flex h-max flex-col items-start justify-between gap-4 p-0 pl-4 text-[#EFEEED] lg:flex-row">
                   <div className="flex h-full w-full flex-col justify-between lg:w-1/2 lg:items-start">
                     <h3
                       className={`${GiordanoGoldSerif.className} w-full lg:w-1/2 text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl`}
@@ -92,14 +92,14 @@ export default function FeaturedServicesCarousel() {
                       {service.title}
                     </h3>
                     {service.aditionalFeatures && (
-                      <ul className="list-inside text-sm lg:text-xl xl:text-2xl">
+                      <ul className="list-inside text-sm font-extralight xl:text-xl 2xl:text-2xl">
                         {service.aditionalFeatures.map((feature, index) => (
-                          <li key={index}>{feature}</li>
+                          <li  key={index}>{feature}</li>
                         ))}
                       </ul>
                     )}
                   </div>
-                  <p className="w-full text-lg lg:w-1/2 lg:text-xl xl:text-2xl 2xl:text-3xl">
+                  <p className="w-full text-lg lg:w-1/2 lg:text-base xl:text-xl 2xl:text-3xl">
                     {service.description}
                   </p>
                 </CardContent>

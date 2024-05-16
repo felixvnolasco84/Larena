@@ -181,7 +181,7 @@ export default function ContactForm() {
               name="interest"
               render={({ field }) => (
                 <FormItem className="flex flex-col items-center gap-2 space-y-0 lg:flex-row lg:gap-8 xl:gap-10 2xl:gap-12">
-                  <FormLabel className="text-sm lg:text-xl">
+                  <FormLabel className="text-sm lg:text-base xl:text-xl">
                     I AM INTERESTED IN
                   </FormLabel>
                   <FormControl>
@@ -198,7 +198,7 @@ export default function ContactForm() {
                           <FormControl>
                             <RadioGroupItem value={item} />
                           </FormControl>
-                          <FormLabel className="mt-0 text-sm lg:text-xl">
+                          <FormLabel className="mt-0 text-sm lg:text-base xl:text-xl">
                             {item}
                           </FormLabel>
                         </FormItem>
@@ -223,7 +223,7 @@ export default function ContactForm() {
                     />
                   </FormControl>
                   <div className="space-y-0 leading-none">
-                    <FormLabel className="text-sm lg:text-xl">
+                    <FormLabel className="text-sm lg:text-base xl:text-xl">
                       I ACCEPT THE TERMS & CONDITIONS
                     </FormLabel>
                   </div>

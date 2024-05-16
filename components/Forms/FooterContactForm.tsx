@@ -197,7 +197,7 @@ export default function FooterContactForm() {
                           <FormControl className="border-[#F5F5F5]">
                             <RadioGroupItem value={item} />
                           </FormControl>
-                          <FormLabel className="mt-0 text-sm lg:text-xl">
+                          <FormLabel className="mt-0 text-sm lg:text-base xl:text-xl">
                             {item}
                           </FormLabel>
                         </FormItem>
@@ -223,7 +223,7 @@ export default function FooterContactForm() {
                     />
                   </FormControl>
                   <div className="space-y-0 leading-none">
-                    <FormLabel className="text-sm lg:text-xl">
+                    <FormLabel className="text-sm lg:text-base xl:text-xl">
                       I ACCEPT THE TERMS & CONDITIONS
                     </FormLabel>
                   </div>
