@@ -179,8 +179,10 @@ export default function FooterContactForm() {
               control={form.control}
               name="interest"
               render={({ field }) => (
-                <FormItem className="flex items-center gap-6 space-y-0">
-                  <FormLabel className="text-xl">I AM INTERESTED IN</FormLabel>
+                <FormItem className="flex flex-col items-center gap-6 space-y-0 lg:flex-row">
+                  <FormLabel className="text-sm lg:text-xl">
+                    I AM INTERESTED IN
+                  </FormLabel>
                   <FormControl>
                     <RadioGroup
                       onValueChange={field.onChange}
@@ -195,7 +197,9 @@ export default function FooterContactForm() {
                           <FormControl className="border-[#F5F5F5]">
                             <RadioGroupItem value={item} />
                           </FormControl>
-                          <FormLabel className="mt-0 text-xl">{item}</FormLabel>
+                          <FormLabel className="mt-0 text-sm lg:text-xl">
+                            {item}
+                          </FormLabel>
                         </FormItem>
                       ))}
                     </RadioGroup>
@@ -215,11 +219,11 @@ export default function FooterContactForm() {
                     <Checkbox
                       checked={field.value}
                       onCheckedChange={field.onChange}
-                      className="text-[#F5F5F5]"
+                      className="border-white text-[#F5F5F5]"
                     />
                   </FormControl>
                   <div className="space-y-0 leading-none">
-                    <FormLabel className="text-xl">
+                    <FormLabel className="text-sm lg:text-xl">
                       I ACCEPT THE TERMS & CONDITIONS
                     </FormLabel>
                   </div>

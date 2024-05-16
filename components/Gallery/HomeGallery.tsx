@@ -65,7 +65,6 @@ const services: Service[] = [
 export default function HomeGallery() {
   return (
     <div className="relative bg-[#424D5E]">
-      {/* <div className="absolute left-0 top-0 w-full bg-white lg:h-2/6 xl:h-2/6 2xl:h-1/2"></div> */}
       <Carousel
         opts={{
           align: "center",
@@ -75,7 +74,7 @@ export default function HomeGallery() {
         <CarouselContent className="p-0">
           {services.map((service, index) => (
             <CarouselItem key={index} className="basis-full">
-              <Card className="h-[1080px] w-full border-none bg-transparent">
+              <Card className="aspect-square w-full border-none bg-transparent lg:aspect-auto lg:h-[800px] xl:h-[1080px]">
                 <CardHeader className="relative h-full p-0">
                   <Image
                     src={service.image}
@@ -84,31 +83,11 @@ export default function HomeGallery() {
                     objectFit="cover"
                   />
                 </CardHeader>
-
-                {/* <CardContent className="flex h-max items-start justify-between p-6 text-[#EFEEED]">
-                  <div className="flex h-full flex-col items-start justify-between">
-                    <h3
-                      className={`${GiordanoGoldSerif.className} w-1/2 text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl`}
-                    >
-                      {service.title}
-                    </h3>
-                    {service.aditionalFeatures && (
-                      <ul className="list-inside text-2xl">
-                        {service.aditionalFeatures.map((feature, index) => (
-                          <li key={index}>{feature}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                  <p className="w-1/2 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
-                    {service.description}
-                  </p>
-                </CardContent> */}
               </Card>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="flex w-full justify-center gap-12 py-12">
+        <div className="flex w-full justify-center gap-6 py-12 lg:gap-12">
           <CarouselPrevious />
           <CarouselNext />
         </div>

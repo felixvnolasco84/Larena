@@ -102,7 +102,7 @@ export default function ContactForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <div className="grid gap-12">
+        <div className="grid gap-6 lg:gap-12">
           <div className="grid w-full items-center gap-1.5">
             <FormField
               control={form.control}
@@ -115,7 +115,6 @@ export default function ContactForm() {
                   </FormDescription> */}
                   <FormControl className="bg-transparent">
                     <Input
-                      className="border-none px-0 text-2xl"
                       placeholder="YOUR NAME"
                       autoCapitalize="none"
                       autoComplete="off"
@@ -176,13 +175,15 @@ export default function ContactForm() {
             />
           </div>
 
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col items-center justify-between gap-4 lg:flex-row lg:gap-0">
             <FormField
               control={form.control}
               name="interest"
               render={({ field }) => (
-                <FormItem className="flex items-center gap-12 space-y-0">
-                  <FormLabel className="text-xl">I AM INTERESTED IN</FormLabel>
+                <FormItem className="flex flex-col items-center gap-2 space-y-0 lg:flex-row lg:gap-8 xl:gap-10 2xl:gap-12">
+                  <FormLabel className="text-sm lg:text-xl">
+                    I AM INTERESTED IN
+                  </FormLabel>
                   <FormControl>
                     <RadioGroup
                       onValueChange={field.onChange}
@@ -197,7 +198,9 @@ export default function ContactForm() {
                           <FormControl>
                             <RadioGroupItem value={item} />
                           </FormControl>
-                          <FormLabel className="mt-0 text-xl">{item}</FormLabel>
+                          <FormLabel className="mt-0 text-sm lg:text-xl">
+                            {item}
+                          </FormLabel>
                         </FormItem>
                       ))}
                     </RadioGroup>
@@ -220,7 +223,7 @@ export default function ContactForm() {
                     />
                   </FormControl>
                   <div className="space-y-0 leading-none">
-                    <FormLabel className="text-xl">
+                    <FormLabel className="text-sm lg:text-xl">
                       I ACCEPT THE TERMS & CONDITIONS
                     </FormLabel>
                   </div>
@@ -231,7 +234,7 @@ export default function ContactForm() {
 
           <div className="flex justify-end">
             <Button type="submit" className="w-fit" variant="outline" size="lg">
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-2 lg:gap-6">
                 <span>
                   {isLoading ? (
                     <Loader className="h-4 w-4 animate-spin" />

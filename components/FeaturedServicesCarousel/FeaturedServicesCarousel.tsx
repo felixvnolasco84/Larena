@@ -64,8 +64,8 @@ const services: Service[] = [
 
 export default function FeaturedServicesCarousel() {
   return (
-    <div className="relative bg-[#424D5E] pb-24">
-      <div className="absolute left-0 top-0 w-full bg-white lg:h-2/6 xl:h-2/6 2xl:h-1/2"></div>
+    <div className="relative bg-[#424D5E] lg:pb-24">
+      <div className="absolute left-0 top-0 h-1/6 w-full bg-white lg:h-1/6 xl:h-2/6 2xl:h-1/2"></div>
       <Carousel
         opts={{
           align: "start",
@@ -84,22 +84,22 @@ export default function FeaturedServicesCarousel() {
                   />
                 </CardHeader>
 
-                <CardContent className="flex h-max items-start justify-between p-6 text-[#EFEEED]">
-                  <div className="flex h-full flex-col items-start justify-between">
+                <CardContent className="flex h-max flex-col items-start justify-between gap-4 p-3 text-[#EFEEED] lg:flex-row lg:p-6">
+                  <div className="flex h-full w-full flex-col justify-between lg:w-1/2 lg:items-start">
                     <h3
-                      className={`${GiordanoGoldSerif.className} w-1/2 text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl`}
+                      className={`${GiordanoGoldSerif.className} w-full lg:w-1/2 text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl`}
                     >
                       {service.title}
                     </h3>
                     {service.aditionalFeatures && (
-                      <ul className="list-inside text-2xl">
+                      <ul className="list-inside text-sm lg:text-xl xl:text-2xl">
                         {service.aditionalFeatures.map((feature, index) => (
                           <li key={index}>{feature}</li>
                         ))}
                       </ul>
                     )}
                   </div>
-                  <p className="w-1/2 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
+                  <p className="w-full text-lg lg:w-1/2 lg:text-xl xl:text-2xl 2xl:text-3xl">
                     {service.description}
                   </p>
                 </CardContent>
@@ -107,9 +107,9 @@ export default function FeaturedServicesCarousel() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="flex flex-col">
-          {/* <CarouselPrevious />
-          <CarouselNext /> */}
+        <div className="flex w-full justify-center gap-6 py-12 lg:mx-auto lg:w-11/12 lg:justify-end lg:gap-12">
+          <CarouselPrevious />
+          <CarouselNext />
         </div>
       </Carousel>
     </div>
