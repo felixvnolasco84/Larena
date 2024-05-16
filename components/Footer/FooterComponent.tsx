@@ -8,13 +8,14 @@ import Link from "next/link";
 import LARENAALT from "@/public/images/LARENA LOGO ALT.png";
 import { Button } from "../ui/button";
 import ContactForm from "../Forms/ContactForm";
+import FooterContactForm from "../Forms/FooterContactForm";
 
 export default function FooterComponent() {
   return (
-    <div className="flex w-full flex-col bg-[#424D5E] py-12">
-      <div className="mx-auto flex w-11/12 justify-between">
+    <div className="flex w-full flex-col border-t border-t-[#F5F5F5] bg-[#424D5E] py-24">
+      <div className="mx-auto flex w-11/12 gap-12 2xl:container">
         <Image className="h-fit max-w-[160px]" src={LARENAALT} alt="Rombo" />
-        <ContactForm />
+        <FooterContactForm />
       </div>
 
       <div className="flex items-center justify-center gap-12 text-[#F5F5F5]">

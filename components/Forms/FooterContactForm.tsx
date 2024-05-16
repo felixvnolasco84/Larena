@@ -27,7 +27,7 @@ export const phoneRegex = new RegExp(
 
 const interest = ["DIGITAL BROCHURE", "A MEETING OR CALL"];
 
-export default function ContactForm() {
+export default function FooterContactForm() {
   const router = useRouter();
 
   const FormSchema = z.object({
@@ -101,21 +101,17 @@ export default function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <div className="grid gap-12">
+      <form className="w-full" onSubmit={form.handleSubmit(onSubmit)}>
+        <div className="grid gap-12 text-[#F5F5F5]">
           <div className="grid w-full items-center gap-1.5">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem className="space-y-0 border-b border-b-[#424D5E]">
-                  {/* <FormLabel>Nombre de la Marca</FormLabel>
-                  <FormDescription>
-                    Agregar el nombre de tu marca o organización
-                  </FormDescription> */}
+                <FormItem className="space-y-0 border-b border-b-[#F5F5F5] text-[#F5F5F5]">
                   <FormControl className="bg-transparent">
                     <Input
-                      className="border-none px-0 text-2xl"
+                      className="placeholder:text-white"
                       placeholder="YOUR NAME"
                       autoCapitalize="none"
                       autoComplete="off"
@@ -135,13 +131,14 @@ export default function ContactForm() {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="space-y-0 border-b border-b-[#424D5E]">
+                <FormItem className="space-y-0 border-b border-b-[#F5F5F5] text-[#F5F5F5]">
                   {/* <FormLabel>Nombre de la Marca</FormLabel>
                   <FormDescription>
                     Agregar el nombre de tu marca o organización
                   </FormDescription> */}
                   <FormControl className="bg-transparent">
                     <Input
+                      className="placeholder:text-white"
                       placeholder="YOUR EMAIL"
                       autoCapitalize="none"
                       autoComplete="off"
@@ -159,9 +156,10 @@ export default function ContactForm() {
               control={form.control}
               name="phoneNumber"
               render={({ field }) => (
-                <FormItem className="space-y-0 border-b border-b-[#424D5E]">
+                <FormItem className="space-y-0 border-b border-b-[#F5F5F5] text-[#F5F5F5]">
                   <FormControl className="bg-transparent">
                     <Input
+                      className="placeholder:text-white"
                       placeholder="PHONE"
                       autoCapitalize="none"
                       autoComplete="off"
@@ -176,12 +174,12 @@ export default function ContactForm() {
             />
           </div>
 
-          <div className="flex items-center justify-between">
+          <div className="flex">
             <FormField
               control={form.control}
               name="interest"
               render={({ field }) => (
-                <FormItem className="flex items-center gap-12 space-y-0">
+                <FormItem className="flex items-center gap-6 space-y-0">
                   <FormLabel className="text-xl">I AM INTERESTED IN</FormLabel>
                   <FormControl>
                     <RadioGroup
@@ -194,7 +192,7 @@ export default function ContactForm() {
                           key={index}
                           className="flex items-center gap-1 space-y-0"
                         >
-                          <FormControl>
+                          <FormControl className="border-[#F5F5F5]">
                             <RadioGroupItem value={item} />
                           </FormControl>
                           <FormLabel className="mt-0 text-xl">{item}</FormLabel>
@@ -206,7 +204,8 @@ export default function ContactForm() {
                 </FormItem>
               )}
             />
-
+          </div>
+          <div className="flex">
             <FormField
               control={form.control}
               name="acceptTerms"
@@ -216,7 +215,7 @@ export default function ContactForm() {
                     <Checkbox
                       checked={field.value}
                       onCheckedChange={field.onChange}
-                      className=""
+                      className="text-[#F5F5F5]"
                     />
                   </FormControl>
                   <div className="space-y-0 leading-none">
@@ -230,7 +229,12 @@ export default function ContactForm() {
           </div>
 
           <div className="flex justify-end">
-            <Button type="submit" className="w-fit" variant="outline" size="lg">
+            <Button
+              type="submit"
+              className="w-fit border-[#F5F5F5] bg-transparent text-[#F5F5F5]"
+              variant="outline"
+              size="lg"
+            >
               <div className="flex items-center gap-6">
                 <span>
                   {isLoading ? (

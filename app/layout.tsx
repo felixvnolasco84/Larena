@@ -18,11 +18,11 @@ export default function RootLayout({
   return (
     <html lang="es-Mx">
       <body className={MantonicoExtraLight.className}>
-        <div className="text-[#424D5E]">
+        <div className="flex flex-col text-[#424D5E]">
           <main>{children}</main>
           <Toaster />
+          <FooterComponent />
         </div>
-        <FooterComponent />
       </body>
     </html>
   );
