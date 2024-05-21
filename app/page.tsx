@@ -1,7 +1,7 @@
 import Image from "next/image";
 import HeroImage from "@/public/images/HeroImage.png";
-import Logo from "@/public/svg/Logo.svg";
-import Campestre from "@/public/svg/Campestre San José del Cabo.svg";
+import Logo from "@/public/images/LARENALOGO.png";
+import Campestre from "@/public/images/Campestre San José del Cabo.png";
 import { GiordanoGoldSerif } from "@/styles/fonts";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -16,15 +16,15 @@ export default function Home() {
       <div className="relative flex h-[600px] min-w-max justify-center overflow-x-hidden lg:h-screen">
         <Image src={HeroImage} alt="Rombo" layout="fill" objectFit="cover" />
         <div className="absolute top-12 flex flex-col items-center justify-center gap-2">
-          <div className="relative h-[32px] w-[232px] lg:h-[36px] lg:w-[250px]">
-            <Image src={Logo} alt="Rombo" layout="fill" objectFit="cover" />
+          <div className="relative h-[37px] w-[250px]">
+            <Image src={Logo} alt="Rombo" layout="fill" objectFit="fill" />
           </div>
-          <div className="relative h-[24px] w-[219px] lg:h-[27px] lg:w-[250px]">
+          <div className="relative h-[27px] w-[250px]">
             <Image
               src={Campestre}
               alt="Rombo"
               layout="fill"
-              objectFit="cover"
+              objectFit="fill"
             />
           </div>
         </div>
