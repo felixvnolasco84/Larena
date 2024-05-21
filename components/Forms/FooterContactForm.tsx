@@ -102,7 +102,7 @@ export default function FooterContactForm() {
   return (
     <Form {...form}>
       <form className="w-full" onSubmit={form.handleSubmit(onSubmit)}>
-        <div className="grid gap-12 text-[#F5F5F5]">
+        <div className="grid gap-6 text-[#F5F5F5] lg:gap-12">
           <div className="grid w-full items-center gap-1.5">
             <FormField
               control={form.control}
@@ -179,15 +179,15 @@ export default function FooterContactForm() {
               control={form.control}
               name="interest"
               render={({ field }) => (
-                <FormItem className="flex flex-col items-center gap-6 space-y-0 lg:flex-row">
+                <FormItem className="flex w-full flex-col items-start gap-2 space-y-0 lg:flex-row lg:gap-8 xl:gap-10 2xl:gap-12">
                   <FormLabel className="text-sm lg:text-xl">
-                    I AM INTERESTED IN
+                    I AM INTERESTED IN:
                   </FormLabel>
                   <FormControl>
                     <RadioGroup
                       onValueChange={field.onChange}
                       defaultValue={field.value}
-                      className="flex gap-12 space-y-0"
+                      className="flex w-full justify-between gap-0 space-y-0 lg:justify-start lg:gap-12"
                     >
                       {interest.map((item, index) => (
                         <FormItem
@@ -197,7 +197,7 @@ export default function FooterContactForm() {
                           <FormControl className="border-[#F5F5F5]">
                             <RadioGroupItem value={item} />
                           </FormControl>
-                          <FormLabel className="mt-0 text-sm lg:text-base xl:text-xl">
+                          <FormLabel className="mt-0 text-xs lg:text-base xl:text-xl">
                             {item}
                           </FormLabel>
                         </FormItem>
@@ -214,7 +214,7 @@ export default function FooterContactForm() {
               control={form.control}
               name="acceptTerms"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-center gap-4 space-y-0 border-none p-0">
+                <FormItem className="flex w-full flex-row items-center gap-2 space-y-0 border-none p-0 lg:gap-4">
                   <FormControl>
                     <Checkbox
                       checked={field.value}
@@ -223,16 +223,14 @@ export default function FooterContactForm() {
                     />
                   </FormControl>
                   <div className="space-y-0 leading-none">
-                    <FormLabel className="text-sm lg:text-base xl:text-xl">
+                    <FormLabel className="text-xs lg:text-base xl:text-xl">
                       I ACCEPT THE TERMS & CONDITIONS
                     </FormLabel>
                   </div>
                 </FormItem>
               )}
             />
-          </div>
 
-          <div className="flex justify-end">
             <Button
               type="submit"
               className="w-fit border-[#F5F5F5] bg-transparent text-[#F5F5F5]"
@@ -240,9 +238,9 @@ export default function FooterContactForm() {
               size="lg"
             >
               <div className="flex items-center gap-6">
-                <span>
+                <span className="text-xs lg:text-base">
                   {isLoading ? (
-                    <Loader className="h-4 w-4 animate-spin" />
+                    <Loader className="h-3 w-3 animate-spin lg:h-4 lg:w-4" />
                   ) : (
                     "SEND"
                   )}

@@ -180,15 +180,15 @@ export default function ContactForm() {
               control={form.control}
               name="interest"
               render={({ field }) => (
-                <FormItem className="flex flex-col items-center gap-2 space-y-0 lg:flex-row lg:gap-8 xl:gap-10 2xl:gap-12">
+                <FormItem className="flex w-full flex-col items-start gap-2 space-y-0 lg:flex-row lg:gap-8 xl:gap-10 2xl:gap-12">
                   <FormLabel className="text-sm lg:text-base xl:text-xl">
-                    I AM INTERESTED IN
+                    I AM INTERESTED IN:
                   </FormLabel>
                   <FormControl>
                     <RadioGroup
                       onValueChange={field.onChange}
                       defaultValue={field.value}
-                      className="flex gap-12 space-y-0"
+                      className="flex w-full justify-between gap-0 space-y-0 lg:justify-start lg:gap-12"
                     >
                       {interest.map((item, index) => (
                         <FormItem
@@ -198,7 +198,7 @@ export default function ContactForm() {
                           <FormControl>
                             <RadioGroupItem value={item} />
                           </FormControl>
-                          <FormLabel className="mt-0 text-sm lg:text-base xl:text-xl">
+                          <FormLabel className="mt-0 text-xs lg:text-base xl:text-xl">
                             {item}
                           </FormLabel>
                         </FormItem>
@@ -209,12 +209,14 @@ export default function ContactForm() {
                 </FormItem>
               )}
             />
+          </div>
 
+          <div className="flex">
             <FormField
               control={form.control}
               name="acceptTerms"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-center gap-4 space-y-0 border-none p-0">
+                <FormItem className="flex w-full flex-row items-center gap-2 space-y-0 border-none p-0 lg:gap-4">
                   <FormControl>
                     <Checkbox
                       checked={field.value}
@@ -223,21 +225,18 @@ export default function ContactForm() {
                     />
                   </FormControl>
                   <div className="space-y-0 leading-none">
-                    <FormLabel className="text-sm lg:text-base xl:text-xl">
+                    <FormLabel className="text-xs lg:text-base xl:text-xl">
                       I ACCEPT THE TERMS & CONDITIONS
                     </FormLabel>
                   </div>
                 </FormItem>
               )}
             />
-          </div>
-
-          <div className="flex justify-end">
             <Button type="submit" className="w-fit" variant="outline" size="lg">
               <div className="flex items-center gap-2 lg:gap-6">
-                <span>
+                <span className="text-xs lg:text-base">
                   {isLoading ? (
-                    <Loader className="h-4 w-4 animate-spin" />
+                    <Loader className="h-3 w-3 animate-spin lg:h-4 lg:w-4" />
                   ) : (
                     "SEND"
                   )}

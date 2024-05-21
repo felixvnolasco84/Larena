@@ -15,11 +15,11 @@ export default function Home() {
       {/* Hero section */}
       <div className="relative flex h-[600px] min-w-max justify-center overflow-x-hidden lg:h-screen">
         <Image src={HeroImage} alt="Rombo" layout="fill" objectFit="cover" />
-        <div className="absolute top-12 flex flex-col items-center gap-2">
-          <div className="relative h-[36px] w-[250px]">
+        <div className="absolute top-12 flex flex-col items-center justify-center gap-2">
+          <div className="relative h-[32px] w-[232px] lg:h-[36px] lg:w-[250px]">
             <Image src={Logo} alt="Rombo" layout="fill" objectFit="cover" />
           </div>
-          <div className="relative h-[27px] w-[250px]">
+          <div className="relative h-[24px] w-[219px] lg:h-[27px] lg:w-[250px]">
             <Image
               src={Campestre}
               alt="Rombo"

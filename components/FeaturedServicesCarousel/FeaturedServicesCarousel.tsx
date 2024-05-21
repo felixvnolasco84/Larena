@@ -87,12 +87,12 @@ export default function FeaturedServicesCarousel() {
                 <CardContent className="flex h-max flex-col items-start justify-between gap-4 p-0 pl-4 text-[#EFEEED] lg:flex-row">
                   <div className="flex h-full w-full flex-col justify-between lg:w-1/2 lg:items-start">
                     <h3
-                      className={`${GiordanoGoldSerif.className} w-full lg:w-1/2 text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl`}
+                      className={`${GiordanoGoldSerif.className} w-full  text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl`}
                     >
                       {service.title}
                     </h3>
                     {service.aditionalFeatures && (
-                      <ul className="list-inside text-sm font-extralight xl:text-xl 2xl:text-2xl">
+                      <ul className="hidden list-inside text-sm font-extralight lg:block xl:text-xl 2xl:text-2xl">
                         {service.aditionalFeatures.map((feature, index) => (
                           <li  key={index}>{feature}</li>
                         ))}
