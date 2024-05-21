@@ -65,7 +65,7 @@ const services: Service[] = [
 export default function FeaturedServicesCarousel() {
   return (
     <div className="relative bg-[#424D5E] lg:pb-24">
-      <div className="absolute left-0 top-0 h-1/6 w-full bg-[#f5f5f5] lg:h-1/6 xl:h-2/6 2xl:h-1/2"></div>
+      <div className="absolute left-0 top-0 h-1/6 w-full bg-[#f5f5f5] lg:h-1/6 xl:h-2/6 2xl:h-2/6"></div>
       <Carousel
         opts={{
           align: "start",
