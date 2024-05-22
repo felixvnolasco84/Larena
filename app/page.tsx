@@ -14,18 +14,19 @@ export default function Home() {
     <div className="flex flex-col gap-24 lg:gap-52 xl:gap-y-72">
       {/* Hero section */}
       <div className="relative flex h-[600px] min-w-max justify-center overflow-x-hidden lg:h-screen">
-        <Image src={HeroImage} alt="Rombo" layout="fill" objectFit="cover" />
+        <Image
+          src={HeroImage}
+          alt="Rombo"
+          fill
+          objectFit="cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
+        />
         <div className="absolute top-12 flex flex-col items-center justify-center gap-2">
           <div className="relative h-[37px] w-[250px]">
-            <Image src={Logo} alt="Rombo" layout="fill" objectFit="fill" />
+            <Image src={Logo} alt="Rombo" fill />
           </div>
           <div className="relative h-[27px] w-[250px]">
-            <Image
-              src={Campestre}
-              alt="Rombo"
-              layout="fill"
-              objectFit="fill"
-            />
+            <Image src={Campestre} alt="Rombo" layout="fill" objectFit="fill" />
           </div>
         </div>
       </div>

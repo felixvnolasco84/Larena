@@ -180,7 +180,7 @@ export default function FooterContactForm() {
               name="interest"
               render={({ field }) => (
                 <FormItem className="flex w-full flex-col items-start gap-2 space-y-0 lg:flex-row lg:gap-8 xl:gap-10 2xl:gap-12">
-                  <FormLabel className="text-sm lg:text-xl">
+                  <FormLabel className="w-fit text-sm lg:w-80 lg:text-base xl:text-xl">
                     I AM INTERESTED IN:
                   </FormLabel>
                   <FormControl>
