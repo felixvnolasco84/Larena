@@ -20,6 +20,7 @@ import { ArrowRight, Loader, LucidePersonStanding } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Checkbox } from "../ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { sendContactEmail } from "@/app/_actions";
 
 export const phoneRegex = new RegExp(
   /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
@@ -62,43 +63,37 @@ export default function FooterContactForm() {
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    // console.log(data);
     try {
-      const jsonData = JSON.stringify(data);
-      const draftResponse = await fetch("/api/brands ", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: jsonData,
+      const { name, email, phoneNumber, interest } = data;
+      const response = await sendContactEmail({
+        name,
+        email,
+        phone: phoneNumber,
+        interest,
       });
 
-      const response = await draftResponse.json();
-
-      if (response.id) {
+      if (response.success === true) {
         toast({
           variant: "default",
-          title: "¡Listo!",
-          description: "Tu proyecto se ha creado correctamente",
+          title: "Done!",
+          description: "Thanks for getting in touch, we will contact you soon",
         });
         form.reset();
-        router.push(`/portal/marcas/${response.id}`);
       } else {
         toast({
           variant: "destructive",
-          title: "¡Oh!",
-          description: "Al parecer hubo un error, intentelo más tarde",
+          title: "Oops!",
+          description: "Seems like there was an error, please try again later",
         });
       }
     } catch (error: any) {
       toast({
         variant: "destructive",
         title: "Oops!",
-        description: "Al parecer hubo un error, intentelo más tarde",
+        description: "Seems like there was an error, please try again later",
       });
     }
   }
-
   return (
     <Form {...form}>
       <form className="w-full" onSubmit={form.handleSubmit(onSubmit)}>
