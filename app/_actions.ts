@@ -31,6 +31,7 @@ export async function sendContactEmail({
         interest,
       }),
     });
+    console.log(data)
     return { success: true, data };
   } catch (error) {
     console.log(error);
