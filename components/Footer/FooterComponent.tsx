@@ -14,11 +14,32 @@ export default function FooterComponent() {
         <FooterContactForm />
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-8 py-24 text-[#F5F5F5] lg:flex-row lg:gap-12 lg:py-0">
-        <Image className="max-w-[120px] lg:max-w-[140px]" src={Ogarrio} alt="Rombo" />
-        <Image className="max-w-[120px] lg:max-w-[140px]" src={IDS} alt="Rombo" />
-        <Image className="max-w-[120px] lg:max-w-[140px]" src={CHK} alt="Rombo" />
-        <Image className="max-w-[120px] lg:max-w-[140px]" src={OLAR} alt="Rombo" />
+      <div className="flex flex-col py-24 lg:py-0">
+        <div className="flex w-full items-center justify-center">
+          <Image
+            className="max-w-[210px] lg:max-w-[210px]"
+            src={Ogarrio}
+            alt="Rombo"
+          />
+        </div>
+
+        <div className="flex flex-row items-center justify-center gap-8 text-[#F5F5F5] lg:gap-12">
+          <Image
+            className="max-w-[80px] lg:max-w-[110px]"
+            src={IDS}
+            alt="Rombo"
+          />
+          <Image
+            className="max-w-[80px] lg:max-w-[110px]"
+            src={CHK}
+            alt="Rombo"
+          />
+          <Image
+            className="max-w-[80px] lg:max-w-[110px]"
+            src={OLAR}
+            alt="Rombo"
+          />
+        </div>
       </div>
     </div>
   );
