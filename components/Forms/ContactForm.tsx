@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import {
@@ -56,6 +56,7 @@ export default function ContactForm() {
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
+    setIsLoading(true);
     try {
       const { name, email, phoneNumber, interest } = data;
       const response = await sendContactEmail({
@@ -85,7 +86,10 @@ export default function ContactForm() {
         title: "Oops!",
         description: "Seems like there was an error, please try again later",
       });
+    } finally {
+      setIsLoading(false);
     }
+
   }
 
   return (
@@ -221,7 +225,7 @@ export default function ContactForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-fit" variant="outline" size="lg">
+            <Button disabled={isLoading} type="submit" className="w-fit" variant="outline" size="lg">
               <div className="flex items-center gap-2 lg:gap-6">
                 <span className="text-xs lg:text-base">
                   {isLoading ? (

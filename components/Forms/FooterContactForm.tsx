@@ -63,6 +63,7 @@ export default function FooterContactForm() {
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
+    setIsLoading(true);
     try {
       const { name, email, phoneNumber, interest } = data;
       const response = await sendContactEmail({
@@ -92,6 +93,8 @@ export default function FooterContactForm() {
         title: "Oops!",
         description: "Seems like there was an error, please try again later",
       });
+    } finally {
+      setIsLoading(false);
     }
   }
   return (
@@ -228,6 +231,7 @@ export default function FooterContactForm() {
 
             <Button
               type="submit"
+              disabled={isLoading}
               className="w-fit border-[#F5F5F5] bg-transparent text-[#F5F5F5]"
               variant="outline"
               size="lg"
