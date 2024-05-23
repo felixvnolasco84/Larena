@@ -30,7 +30,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="mx-auto flex w-11/12 flex-col justify-between 2xl:container lg:flex-row lg:gap-4 xl:gap-0">
+      <div className="mx-auto flex w-11/12 flex-col justify-between 2xl:container lg:flex-row lg:gap-8 xl:gap-0">
         <h1
           className={`${GiordanoGoldSerif.className} text-3xl xl:text-4xl 2xl:text-5xl text-left 2xl:leading-[55px] w-full lg:w-6/12 max-w-[742px]`}
         >

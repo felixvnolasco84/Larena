@@ -4,7 +4,6 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -16,10 +15,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import { ArrowRight, Loader, LucidePersonStanding } from "lucide-react";
+import { ArrowRight, Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Checkbox } from "../ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { sendContactEmail } from "@/app/_actions";
 
 export const phoneRegex = new RegExp(
   /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
@@ -28,8 +28,6 @@ export const phoneRegex = new RegExp(
 const interest = ["DIGITAL BROCHURE", "A MEETING OR CALL"];
 
 export default function ContactForm() {
-  const router = useRouter();
-
   const FormSchema = z.object({
     name: z.string().min(1, { message: "Please provide a name" }),
     email: z.string().min(1, { message: "Please provide en email" }),
@@ -46,10 +44,6 @@ export default function ContactForm() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
-  const handleItemClick = (index: number) => {
-    setSelectedItem(index === selectedItem ? null : index);
-  };
-
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -62,39 +56,34 @@ export default function ContactForm() {
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    // console.log(data);
     try {
-      const jsonData = JSON.stringify(data);
-      const draftResponse = await fetch("/api/brands ", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: jsonData,
+      const { name, email, phoneNumber, interest } = data;
+      const response = await sendContactEmail({
+        name,
+        email,
+        phone: phoneNumber,
+        interest,
       });
 
-      const response = await draftResponse.json();
-
-      if (response.id) {
+      if (response.success === true) {
         toast({
           variant: "default",
-          title: "¡Listo!",
-          description: "Tu proyecto se ha creado correctamente",
+          title: "Done!",
+          description: "Thanks for getting in touch, we will contact you soon",
         });
         form.reset();
-        router.push(`/portal/marcas/${response.id}`);
       } else {
         toast({
           variant: "destructive",
-          title: "¡Oh!",
-          description: "Al parecer hubo un error, intentelo más tarde",
+          title: "Oops!",
+          description: "Seems like there was an error, please try again later",
         });
       }
     } catch (error: any) {
       toast({
         variant: "destructive",
         title: "Oops!",
-        description: "Al parecer hubo un error, intentelo más tarde",
+        description: "Seems like there was an error, please try again later",
       });
     }
   }
