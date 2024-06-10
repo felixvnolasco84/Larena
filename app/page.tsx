@@ -26,7 +26,7 @@ export default function Home() {
             <Image src={Logo} alt="Rombo" fill />
           </div>
           <div className="relative h-[27px] w-[252px]">
-            <Image src={Campestre} alt="Rombo" className="h-full w-full object-cover object-center" layout="fill" fill sizes="100vw"/>
+            <Image src={Campestre} alt="Rombo" className="h-full w-full object-fill object-center" layout="fill" fill sizes="100vw"/>
           </div>
         </div>
       </div>
