@@ -53,14 +53,14 @@ export default function Home() {
         </div>
       </div>
       <FeaturedServicesCarousel />
-      <div className="mx-auto flex w-11/12 flex-col gap-4 text-[#424D5E] 2xl:container">
+      {/* <div className="mx-auto flex w-11/12 flex-col gap-4 text-[#424D5E] 2xl:container">
         <h3
           className={`${GiordanoGoldSerif.className} text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl`}
         >
           GET IN TOUCH
         </h3>
         <ContactForm />
-      </div>
+      </div> */}
       <HomeGallery />
     </div>
   );

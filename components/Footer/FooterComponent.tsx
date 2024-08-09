@@ -8,7 +8,7 @@ import FooterContactForm from "../Forms/FooterContactForm";
 
 export default function FooterComponent() {
   return (
-    <div className="flex w-full flex-col gap-12 border-t border-t-[#F5F5F5] bg-[#424D5E] pt-24">
+    <div className="flex w-full flex-col border-t border-t-[#F5F5F5] bg-[#424D5E] pt-24 lg:gap-20">
       <div className="mx-auto flex w-11/12 flex-col gap-12 2xl:container lg:flex-row">
         <Image className="h-fit max-w-[160px]" src={LARENAALT} alt="Rombo" />
         <FooterContactForm />

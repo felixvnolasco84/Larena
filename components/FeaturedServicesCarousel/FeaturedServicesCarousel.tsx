@@ -107,7 +107,7 @@ export default function FeaturedServicesCarousel() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="flex w-full justify-center gap-6 py-12 lg:mx-auto lg:w-11/12 lg:justify-end lg:gap-12">
+        <div className="absolute top-0 flex h-full w-full items-center justify-center gap-6 px-4 py-12 lg:mx-auto lg:justify-between lg:gap-12">
           <CarouselPrevious />
           <CarouselNext />
         </div>
