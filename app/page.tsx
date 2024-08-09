@@ -2,12 +2,13 @@ import Image from "next/image";
 import HeroImage from "@/public/images/HeroImage.png";
 import Logo from "@/public/svg/Logo.svg";
 import Campestre from "@/public/svg/Campestre San José del Cabo.svg";
-import { GiordanoGoldSerif } from "@/styles/fonts";
+import { GiordanoGoldSerif, MantonicoExtraLight } from "@/styles/fonts";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import FeaturedServicesCarousel from "@/components/FeaturedServicesCarousel/FeaturedServicesCarousel";
 import ContactForm from "@/components/Forms/ContactForm";
 import HomeGallery from "@/components/Gallery/HomeGallery";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
@@ -21,13 +22,11 @@ export default function Home() {
           objectFit="cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
         />
-        <div className="absolute top-12 flex flex-col items-end justify-center gap-2">
-          <div className="relative h-[37px] w-[250px]">
-            <Image src={Logo} alt="Rombo" fill />
-          </div>
-          <div className="relative h-[27px] w-[252px]">
-            <Image src={Campestre} alt="Rombo" className="h-full w-full object-fill object-center" layout="fill" fill sizes="100vw"/>
-          </div>
+        <div className="absolute top-12 flex flex-col items-center justify-center gap-2">
+          <Image src={Logo} alt="Rombo" />
+          <h2 className={cn("pr-2", MantonicoExtraLight.className)}>
+            Campestre San José del Cabo
+          </h2>
         </div>
       </div>
       <div className="mx-auto flex w-11/12 flex-col justify-between 2xl:container lg:flex-row lg:gap-8 xl:gap-0">
