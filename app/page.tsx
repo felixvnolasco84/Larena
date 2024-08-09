@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-24 lg:gap-52 xl:gap-y-72">
+    <div className="flex flex-col gap-24 lg:gap-y-52 xl:gap-y-72">
       {/* Hero section */}
       <div className="relative flex h-[600px] min-w-max justify-center overflow-x-hidden lg:h-screen">
         <Image
@@ -52,8 +52,9 @@ export default function Home() {
           </Button>
         </div>
       </div>
-      <FeaturedServicesCarousel />
-      {/* <div className="mx-auto flex w-11/12 flex-col gap-4 text-[#424D5E] 2xl:container">
+      <div className="">
+        <FeaturedServicesCarousel />
+        {/* <div className="mx-auto flex w-11/12 flex-col gap-4 text-[#424D5E] 2xl:container">
         <h3
           className={`${GiordanoGoldSerif.className} text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl`}
         >
@@ -61,7 +62,8 @@ export default function Home() {
         </h3>
         <ContactForm />
       </div> */}
-      <HomeGallery />
+        <HomeGallery />
+      </div>
     </div>
   );
 }
