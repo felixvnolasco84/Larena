@@ -64,7 +64,7 @@ const services: Service[] = [
 
 export default function FeaturedServicesCarousel() {
   return (
-    <div className="relative bg-[#424D5E] lg:pb-24">
+    <div className="relative bg-[#424D5E] pb-12 lg:pb-24">
       <div className="absolute left-0 top-0 h-1/6 w-full bg-[#f5f5f5] lg:h-1/6 xl:h-2/6 2xl:h-2/6"></div>
       <Carousel
         opts={{
@@ -94,7 +94,7 @@ export default function FeaturedServicesCarousel() {
                     {service.aditionalFeatures && (
                       <ul className="hidden list-inside text-sm font-extralight lg:block xl:text-xl 2xl:text-2xl">
                         {service.aditionalFeatures.map((feature, index) => (
-                          <li  key={index}>{feature}</li>
+                          <li key={index}>{feature}</li>
                         ))}
                       </ul>
                     )}
@@ -107,7 +107,8 @@ export default function FeaturedServicesCarousel() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="absolute top-0 flex h-full w-full items-center justify-center gap-6 px-4 py-12 lg:mx-auto lg:justify-between lg:gap-12">
+
+        <div className="absolute top-0 flex h-4/6 w-full items-center justify-between px-4 pb-24 lg:mx-auto lg:pb-12">
           <CarouselPrevious />
           <CarouselNext />
         </div>
