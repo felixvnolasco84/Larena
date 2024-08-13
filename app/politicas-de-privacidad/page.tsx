@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Larena - Políticas de Privacidad",
   description: "Conoce nuestras Políticas de Privacidad.",
   alternates: {
-    canonical: "https://www.polygonag.com/politicas-de-privacidad",
+    canonical: "https://www.larena.mx/politicas-de-privacidad",
   },
 };
 
