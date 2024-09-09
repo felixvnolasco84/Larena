@@ -9,6 +9,7 @@ import FeaturedServicesCarousel from "@/components/FeaturedServicesCarousel/Feat
 import ContactForm from "@/components/Forms/ContactForm";
 import HomeGallery from "@/components/Gallery/HomeGallery";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -44,12 +45,14 @@ export default function Home() {
             allure. Experience the best of both worlds as you indulge in
             luxurious living amidst stunning natural landscapes.
           </p>
-          <Button className="w-fit" variant="outline" size="lg">
-            <div className="flex items-center gap-6">
-              <span>GET IN TOUCH</span>
-              <ArrowRight size={24} />
-            </div>
-          </Button>
+          <Link href="#contact">
+            <Button className="w-fit" variant="outline" size="lg">
+              <div className="flex items-center gap-6">
+                <span>GET IN TOUCH</span>
+                <ArrowRight size={24} />
+              </div>
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="">

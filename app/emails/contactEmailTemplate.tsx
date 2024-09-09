@@ -1,4 +1,5 @@
 import * as React from "react";
+import Background from "@/public/images/topography.svg";
 import {
   Body,
   Button,
@@ -35,11 +36,16 @@ export const ContactEmailTemplate = ({
             "https://firebasestorage.googleapis.com/v0/b/larena-aa388.appspot.com/o/LARENALOGO.png?alt=media&token=fce2a0b2-dd84-495b-a98a-bed5b6fe419b"
           }
           alt="LARENA Logo"
+          width={150}
         />
-        <Text style={title}>¡Hi {name}!, thanks to get in touch.</Text>
         <Section style={section}>
           <Text style={text}>
-            Name: <strong>{name}</strong>
+            Hi: <strong>{name}!</strong> <br />
+            We have received your contact information and we will get in touch
+            with you as soon as possible. <br />
+          </Text>
+          <Text style={text}>
+            <strong>Here is the information you provided:</strong>
           </Text>
           <Text style={text}>
             Email: <strong>{email}</strong>
@@ -48,17 +54,18 @@ export const ContactEmailTemplate = ({
             Phone Number: <strong>{phone}</strong>
           </Text>
           <Text style={text}>
-            Interes: <strong>{interest}</strong>
+            I am Interested in: <strong>{interest}</strong>
           </Text>
         </Section>
         <Text style={links}>
           <Link href={"mailto:info@larena.mx"} style={link}>
             Contact Us
           </Link>{" "}
-          ・{" "}
+          {/* ・{" "}
           <Link href={"#"} style={link}>
             Privacy Policy
-          </Link>
+          </Link> */}
+          ・{" "}
           <Link href={"https://www.larena.mx/"} style={link}>
             Website
           </Link>
@@ -71,11 +78,13 @@ export const ContactEmailTemplate = ({
 
 export default ContactEmailTemplate;
 
-const main = {
+const main: React.CSSProperties = {
   backgroundColor: "#ffffff",
   color: "#24292e",
   fontFamily:
     '-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
+  padding: "12px",
+  // backgroundImage: `url(${Background})`,
 };
 
 const container = {
@@ -85,12 +94,13 @@ const container = {
 };
 
 const title = {
-  fontSize: "24px",
+  fontSize: "21px",
   lineHeight: 1.25,
 };
 
 const section = {
   padding: "24px",
+  marginTop: "24px",
   border: "solid 1px #dedede",
   borderRadius: "5px",
   textAlign: "center" as const,
