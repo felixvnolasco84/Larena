@@ -22,7 +22,7 @@ export async function sendContactEmail({
     const data = await resend.emails.send({
       from: "info@larena.mx",
       to: [email],
-      cc: ["info@larena.mx"],
+      cc: ["info@larena.mx", "rodrigo@polygonag.com"],
       subject: `${name} wants to get in touch | LARENA`,
       react: ContactEmailTemplate({
         email,
