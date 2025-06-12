@@ -1,72 +1,115 @@
 import Image from "next/image";
-import HeroImage from "@/public/images/HeroImage.png";
-import Logo from "@/public/svg/Logo.svg";
-import Campestre from "@/public/svg/Campestre San José del Cabo.svg";
+import HeroImageSecond from "@/public/images/HeroImageSecond.png";
+import Map from "@/public/images/Map.png";
+import FlatDiagram from "@/public/images/FlatDiagram.png";
+import Construction from "@/public/images/Construction.png";
+import Logo from "@/public/images/LARENALOGO.png";
 import { GiordanoGoldSerif, MantonicoExtraLight } from "@/styles/fonts";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import FeaturedServicesCarousel from "@/components/FeaturedServicesCarousel/FeaturedServicesCarousel";
-import ContactForm from "@/components/Forms/ContactForm";
-import HomeGallery from "@/components/Gallery/HomeGallery";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
+import FeaturedServicesCarouselSquare from "@/components/FeaturedServicesCarousel/FeaturedServicesCarouselSquare";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-24 lg:gap-y-52 xl:gap-y-72">
-      {/* Hero section */}
-      <div className="relative flex h-[600px] min-w-max justify-center overflow-x-hidden lg:h-screen">
+    <div className="flex flex-col gap-12 lg:gap-y-52 py-8">
+
+      <div className="relative flex h-[600px] min-w-max justify-center overflow-x-hidden lg:h-screen mx-4 rounded-[15px] overflow-hidden">
         <Image
-          src={HeroImage}
+          src={HeroImageSecond}
           alt="Rombo"
           fill
           objectFit="cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
         />
-        <div className="absolute top-12 flex flex-col items-center justify-center gap-2">
+        <div className="absolute left-0 bottom-0 flex flex-col items-center justify-center gap-2 w-full">
           <Image src={Logo} alt="Rombo" />
-          <h2 className={cn("pr-2", MantonicoExtraLight.className)}>
-            Campestre San José del Cabo
-          </h2>
         </div>
       </div>
-      <div className="mx-auto flex w-11/12 flex-col justify-between 2xl:container lg:flex-row lg:gap-8 xl:gap-0">
+      <div className="mx-auto flex w-full flex-col justify-center 2xl:container lg:gap-8 xl:gap-0 items-center px-4">
         <h1
-          className={`${GiordanoGoldSerif.className} text-3xl xl:text-4xl 2xl:text-5xl text-left 2xl:leading-[55px] w-full lg:w-6/12 max-w-[742px]`}
+          className={`${GiordanoGoldSerif.className} text-3xl xl:text-4xl 2xl:text-5xl 2xl:leading-[55px] w-full text-center`}
         >
-          Larena, where the golden sands meet the endless skies of San José del
-          Cabo.
+          Exclusive Oceanview Residences in San José del Cabo
         </h1>
-        <div className="flex w-full flex-col gap-8 lg:w-6/12 xl:gap-16">
-          <p className="max-w-[835px] text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:leading-[40px]">
-            Located within the exclusive Campestre community in San José del
-            Cabo, at the southern tip of the Baja California Peninsula, Larena
-            offers a privileged lifestyle blending desert beauty with seaside
-            allure. Experience the best of both worlds as you indulge in
-            luxurious living amidst stunning natural landscapes.
+        <div className="flex w-full flex-col gap-8 xl:gap-16 mt-6 items-center">
+          <p className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:leading-[40px] text-center">
+            Larena Is Located In The Prestigious Campestre San José Del Cabo, Surrounded By Golf Courses <br /> And Just Minutes From The Beach. Featuring 4-Bedroom Residences With Private Terraces, <br /> Premium Finishes, And Exclusive Amenities Designed For A Refined Coastal Lifestyle.
           </p>
           <Link href="#contact">
             <Button className="w-fit" variant="outline" size="lg">
               <div className="flex items-center gap-6">
-                <span>GET IN TOUCH</span>
+                <span>EXPLORE 360 VIRTUAL TOUR</span>
                 <ArrowRight size={24} />
               </div>
             </Button>
           </Link>
         </div>
       </div>
-      <div className="">
-        <FeaturedServicesCarousel />
-        {/* <div className="mx-auto flex w-11/12 flex-col gap-4 text-[#424D5E] 2xl:container">
-        <h3
-          className={`${GiordanoGoldSerif.className} text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl`}
-        >
-          GET IN TOUCH
-        </h3>
-        <ContactForm />
-      </div> */}
-        <HomeGallery />
+      <div className="px-4 lg:px-8">
+        <FeaturedServicesCarouselSquare />
       </div>
+
+      {/* <HomeGallery /> */}
+
+      <div className="mx-auto flex w-full flex-col justify-center 2xl:container lg:gap-8 xl:gap-0 items-center px-4">
+        <h1
+          className={`${GiordanoGoldSerif.className} text-3xl xl:text-4xl 2xl:text-5xl 2xl:leading-[55px] w-full text-center`}
+        >
+          Spacious 3- and 4-bedroom units designed for comfort
+        </h1>
+        <div className="flex w-full flex-col gap-8 xl:gap-16 mt-6 items-center">
+          <p className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:leading-[40px] text-center">
+            GARDEN AND PENTHOUSE OPTIONS <br />
+
+            MARBLE FLOORS, CUSTOM KITCHENS BY PIACERE, WOLF & <br />
+
+            SUB-ZERO APPLIANCES <br />
+
+            HURRICANE-RESISTANT WINDOWS <br />
+
+            2 PARKING SPOTS PLUS STORAGE
+          </p>
+        </div>
+      </div>
+
+      <div className="grid gap-4 px-4 lg:px-8">
+
+        <div className="aspect-video overflow-hidden">
+          <Image
+            src={FlatDiagram}
+            alt="Rombo"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
+            className="w-full h-full  rounded-[15px] object-cover"
+          />
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-4 ">
+          <Image
+            src={Construction}
+            alt="Rombo"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
+            className="w-full h-full  rounded-[15px] object-cover"
+          />
+          <Image
+            src={Construction}
+            alt="Rombo"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
+            className="w-full h-full  rounded-[15px] object-cover"
+          />
+        </div>
+
+        <div className="aspect-video overflow-hidden">
+          <Image
+            src={Map}
+            alt="Rombo"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
+            className="w-full h-full  rounded-[15px] object-cover"
+          />
+        </div>
+      </div>
+
+
     </div>
   );
 }

@@ -100,16 +100,16 @@ export default function FooterContactForm() {
   return (
     <Form {...form}>
       <form className="w-full" onSubmit={form.handleSubmit(onSubmit)}>
-        <div className="grid gap-6 text-[#F5F5F5] lg:gap-12">
+        <div className="grid gap-6 text-[#555555] lg:gap-12">
           <div className="grid w-full items-center gap-1.5">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem className="space-y-0 border-b border-b-[#F5F5F5] text-[#F5F5F5]">
+                <FormItem className="space-y-0 border-b border-b-[#555555] text-[#555555]">
                   <FormControl className="bg-transparent">
                     <Input
-                      className="placeholder:text-white"
+                      className="placeholder:text-[#555555]"
                       placeholder="YOUR NAME"
                       autoCapitalize="none"
                       autoComplete="off"
@@ -124,19 +124,19 @@ export default function FooterContactForm() {
             />
           </div>
 
-          <div className="grid w-full grid-cols-2 items-center gap-4">
+          <div className="grid w-full items-center gap-12">
             <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="space-y-0 border-b border-b-[#F5F5F5] text-[#F5F5F5]">
+                <FormItem className="space-y-0 border-b border-b-[#555555] text-[#555555]">
                   {/* <FormLabel>Nombre de la Marca</FormLabel>
                   <FormDescription>
                     Agregar el nombre de tu marca o organización
                   </FormDescription> */}
                   <FormControl className="bg-transparent">
                     <Input
-                      className="placeholder:text-white"
+                      className="placeholder:text-[#555555]"
                       placeholder="YOUR EMAIL"
                       autoCapitalize="none"
                       autoComplete="off"
@@ -154,10 +154,10 @@ export default function FooterContactForm() {
               control={form.control}
               name="phoneNumber"
               render={({ field }) => (
-                <FormItem className="space-y-0 border-b border-b-[#F5F5F5] text-[#F5F5F5]">
+                <FormItem className="space-y-0 border-b border-b-[#555555] text-[#555555]">
                   <FormControl className="bg-transparent">
                     <Input
-                      className="placeholder:text-white"
+                      className="placeholder:text-[#555555]"
                       placeholder="PHONE"
                       autoCapitalize="none"
                       autoComplete="off"
@@ -172,7 +172,7 @@ export default function FooterContactForm() {
             />
           </div>
 
-          <div className="flex">
+          {/* <div className="flex">
             <FormField
               control={form.control}
               name="interest"
@@ -192,7 +192,7 @@ export default function FooterContactForm() {
                           key={index}
                           className="flex items-center gap-1 space-y-0"
                         >
-                          <FormControl className="border-[#F5F5F5]">
+                          <FormControl className="border-[#555555]">
                             <RadioGroupItem value={item} />
                           </FormControl>
                           <FormLabel className="mt-0 text-xs lg:text-base xl:text-xl">
@@ -206,9 +206,9 @@ export default function FooterContactForm() {
                 </FormItem>
               )}
             />
-          </div>
+          </div> */}
           <div className="flex">
-            <FormField
+            {/* <FormField
               control={form.control}
               name="acceptTerms"
               render={({ field }) => (
@@ -217,7 +217,7 @@ export default function FooterContactForm() {
                     <Checkbox
                       checked={field.value}
                       onCheckedChange={field.onChange}
-                      className="border-white text-[#F5F5F5]"
+                      className="border-white text-[#555555]"
                     />
                   </FormControl>
                   <div className="space-y-0 leading-none">
@@ -227,12 +227,12 @@ export default function FooterContactForm() {
                   </div>
                 </FormItem>
               )}
-            />
+            /> */}
 
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-fit border-[#F5F5F5] bg-transparent text-[#F5F5F5]"
+              className="w-fit border-[#555555] bg-transparent text-[#555555]"
               variant="outline"
               size="lg"
             >
