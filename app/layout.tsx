@@ -7,7 +7,7 @@ import FooterComponent from "@/components/Footer/FooterComponent";
 
 export const metadata: Metadata = {
   title: "LARENA",
-  description: "lorem ipsum",
+  description: "",
 };
 
 export default function RootLayout({

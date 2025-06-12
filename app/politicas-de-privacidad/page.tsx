@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 let post: string =
-  "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, a.</p>";
+  "<p></p>";
 export default function Page() {
   return (
     <div className="container flex flex-col gap-y-7 px-4 py-12 text-justify lg:flex lg:gap-12">
