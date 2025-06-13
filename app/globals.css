@@ -81,3 +81,8 @@
   font-family: 'Mantonico', sans-serif;
   font-weight: 200;
 }
+
+.custom-grade {
+  background: transparent linear-gradient(180deg, #00000000 0%, #00000063 70%, #000000 100%) 0% 0% no-repeat padding-box;
+
+}

@@ -1,4 +1,3 @@
-import RichTextEditor from "@/components/TipTapOnlyContent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +13,7 @@ let post: string =
 export default function Page() {
   return (
     <div className="container flex flex-col gap-y-7 px-4 py-12 text-justify lg:flex lg:gap-12">
-      <RichTextEditor content={post} />
+      <p>Políticas de Privacidad</p>
     </div>
   );
 }

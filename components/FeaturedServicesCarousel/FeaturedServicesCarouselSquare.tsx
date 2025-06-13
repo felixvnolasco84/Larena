@@ -1,9 +1,10 @@
 import { Card, CardHeader } from "@/components/ui/card";
-import Service01 from "@/public/images/Service01.png";
-import Service02 from "@/public/images/Service02.png";
-import Service03 from "@/public/images/Service03.png";
-import Service04 from "@/public/images/Service04.png";
-import Service05 from "@/public/images/Service05.png";
+
+import Service01 from '@/public/images/Service01.png'
+import Service02 from '@/public/images/Service02.png'
+import Service03 from '@/public/images/Service03.png'
+import Service04 from '@/public/images/Service04.png'
+import Service05 from '@/public/images/Service05.png'
 
 import {
   Carousel,

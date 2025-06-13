@@ -3,11 +3,12 @@ import HeroImageSecond from "@/public/images/HeroImageSecond.png";
 import Map from "@/public/images/Map.png";
 import FlatDiagram from "@/public/images/FlatDiagram.png";
 import Construction from "@/public/images/Construction.png";
-import Logo from "@/public/images/LARENALOGO.png";
-import { GiordanoGoldSerif, MantonicoExtraLight } from "@/styles/fonts";
+import Logo from "@/public/images/logo-white.svg";
+import { GiordanoGoldSerif } from "@/styles/fonts";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+
 import FeaturedServicesCarouselSquare from "@/components/FeaturedServicesCarousel/FeaturedServicesCarouselSquare";
 
 export default function Home() {
@@ -22,7 +23,8 @@ export default function Home() {
           objectFit="cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
         />
-        <div className="absolute left-0 bottom-0 flex flex-col items-center justify-center gap-2 w-full">
+        <div className="absolute top-0 left-0 z-10 w-full h-full custom-grade"></div>
+        <div className="absolute left-0 bottom-0 flex flex-col items-center justify-center gap-2 w-full z-20">
           <Image src={Logo} alt="Rombo" />
         </div>
       </div>
