@@ -25,7 +25,7 @@ export default function Home() {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
         />
         <div className="absolute top-0 left-0 z-10 w-full h-full custom-grade"></div>
-        <div className="absolute left-0  -bottom-[2px] lg:-bottom-2 flex flex-col items-center justify-center gap-2 w-full z-20 lg:px-16">
+        <div className="absolute left-0  -bottom-[2px] lg:-bottom-2 flex flex-col items-center justify-center gap-2 w-full z-20 px-3 lg:px-16">
           <Image className="w-full" src={Logo} alt="Rombo" />
         </div>
       </div>
