@@ -148,7 +148,7 @@ const MapComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className="block lg:hidden rounded-[15px] bg-[#EBE9E2] w-full aspect-video px-6 py-8  transition-all duration-500">
+            <div className="block lg:hidden rounded-[15px] bg-[#EBE9E2] w-full aspect-auto px-6 py-8  transition-all duration-500">
                 <div className="h-full flex flex-col justify-between">
                     <div className="flex items-start gap-6 w-full">
                         <p className="text-8xl  xl:text-9xl font-light text-gray-800 leading-none">
@@ -162,7 +162,7 @@ const MapComponent = () => {
                     </div>
 
                     <div className="mt-4">
-                        <p className="text-base lg:text-xl font-semibold text-gray-800 leading-relaxed">
+                        <p className="text-base lg:text-xl max-w-[280px] lg:max-w-none font-semibold text-gray-800 leading-relaxed">
                             {locations[selectedLocation].description}
                         </p>
                     </div>

@@ -108,7 +108,7 @@ export default function FeaturedServicesCarouselSquare() {
         }}
         className=""
       >
-        <CarouselContent className="mx-auto w-full ">
+        <CarouselContent className="">
           {services.map((service, index) => (
             <CarouselItem key={index} className="basis-full lg:basis-[47%] centerModeMobile">
               <Card className="aspect-square border-none bg-transparent">
@@ -118,7 +118,7 @@ export default function FeaturedServicesCarouselSquare() {
                     alt="Rombo"
                     layout="fill"
 
-                    className="rounded-[15px] object-cover w-full h-full"
+                    className="rounded-[15px] object-cover"
                   />
                 </CardHeader>
 
