@@ -9,14 +9,12 @@ type ContactEmailTemplateProps = {
   name: string;
   email: string;
   phone: string;
-  interest: string;
 };
 
 export async function sendContactEmail({
   email,
   name,
   phone,
-  interest,
 }: ContactEmailTemplateProps) {
   try {
     const data = await resend.emails.send({
@@ -28,7 +26,6 @@ export async function sendContactEmail({
         email,
         name,
         phone,
-        interest,
       }),
     });
     console.log(data);

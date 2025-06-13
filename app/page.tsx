@@ -1,7 +1,7 @@
 import Image from "next/image";
 import HeroImageSecond from "@/public/images/HeroImageSecond.png";
-import Map from "@/public/images/Map.png";
-import FlatDiagram from "@/public/images/FlatDiagram.png";
+import FlatDiagramMobile from "@/public/images/Planta-Cuadrado (mobile).png";
+import FlatDiagramDesktop from "@/public/images/Planta-Horizontal (desktop).png";
 import Construction from "@/public/images/Construction.png";
 import Logo from "@/public/images/logo-white.svg";
 import { GiordanoGoldSerif } from "@/styles/fonts";
@@ -10,6 +10,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 import FeaturedServicesCarouselSquare from "@/components/FeaturedServicesCarousel/FeaturedServicesCarouselSquare";
+import MapComponent from "@/components/MapComponent";
 
 export default function Home() {
   return (
@@ -17,15 +18,15 @@ export default function Home() {
 
       <div className="relative flex h-[600px] min-w-max justify-center overflow-x-hidden lg:h-screen mx-4 rounded-[15px] overflow-hidden">
         <Image
-          src={HeroImageSecond}
+          src="https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmNyx50YT0bMtvxjAzWSL2R3oJF7mhwBaIUQsn"
           alt="Rombo"
           fill
           objectFit="cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
         />
         <div className="absolute top-0 left-0 z-10 w-full h-full custom-grade"></div>
-        <div className="absolute left-0 bottom-0 flex flex-col items-center justify-center gap-2 w-full z-20">
-          <Image src={Logo} alt="Rombo" />
+        <div className="absolute left-0  -bottom-[2px] lg:-bottom-2 flex flex-col items-center justify-center gap-2 w-full z-20">
+          <Image className="w-full" src={Logo} alt="Rombo" />
         </div>
       </div>
       <div className="mx-auto flex w-full flex-col justify-center 2xl:container lg:gap-8 xl:gap-0 items-center px-4">
@@ -35,15 +36,12 @@ export default function Home() {
           Exclusive Oceanview Residences in San José del Cabo
         </h1>
         <div className="flex w-full flex-col gap-8 xl:gap-16 mt-6 items-center">
-          <p className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:leading-[40px] text-center">
+          <p className={GiordanoGoldSerif.className + "text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:leading-[40px] text-center text-[#555555] lg:leading-10"}>
             Larena Is Located In The Prestigious Campestre San José Del Cabo, Surrounded By Golf Courses <br /> And Just Minutes From The Beach. Featuring 4-Bedroom Residences With Private Terraces, <br /> Premium Finishes, And Exclusive Amenities Designed For A Refined Coastal Lifestyle.
           </p>
-          <Link href="#contact">
-            <Button className="w-fit" variant="outline" size="lg">
-              <div className="flex items-center gap-6">
-                <span>EXPLORE 360 VIRTUAL TOUR</span>
-                <ArrowRight size={24} />
-              </div>
+          <Link href="https://recorrido-virtual-larena.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <Button className="w-fit bg-[#4A4A4A] text-white rounded-[8px] lg:text-[20px]" variant="outline" size="lg">
+              EXPLORE 360 VIRTUAL TOUR
             </Button>
           </Link>
         </div>
@@ -77,9 +75,17 @@ export default function Home() {
 
       <div className="grid gap-4 px-4 lg:px-8">
 
-        <div className="aspect-video overflow-hidden">
+        <div className="aspect-square lg:hidden overflow-hidden">
           <Image
-            src={FlatDiagram}
+            src={FlatDiagramMobile}
+            alt="Rombo"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
+            className="w-full h-full  rounded-[15px] object-cover"
+          />
+        </div>
+        <div className="aspect-video hidden lg:block overflow-hidden">
+          <Image
+            src={FlatDiagramDesktop}
             alt="Rombo"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
             className="w-full h-full  rounded-[15px] object-cover"
@@ -87,28 +93,11 @@ export default function Home() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-4 ">
-          <Image
-            src={Construction}
-            alt="Rombo"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
-            className="w-full h-full  rounded-[15px] object-cover"
-          />
-          <Image
-            src={Construction}
-            alt="Rombo"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
-            className="w-full h-full  rounded-[15px] object-cover"
-          />
+          <video src="https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmByDyTAhXkQnr7l1z6qGBxO4htjIUFPevN2uM" autoPlay loop muted className="w-full h-full object-cover rounded-[15px]" />
+          <video src="https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSm9wBLWQjXVSmdgLybrsq16Aa7hlYMnpKPteif" autoPlay loop muted className="w-full h-full object-cover rounded-[15px]" />
         </div>
+        <MapComponent />
 
-        <div className="aspect-video overflow-hidden">
-          <Image
-            src={Map}
-            alt="Rombo"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
-            className="w-full h-full  rounded-[15px] object-cover"
-          />
-        </div>
       </div>
 
 

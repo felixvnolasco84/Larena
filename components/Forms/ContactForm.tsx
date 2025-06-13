@@ -63,7 +63,6 @@ export default function ContactForm() {
         name,
         email,
         phone: phoneNumber,
-        interest,
       });
 
       if (response.success === true) {

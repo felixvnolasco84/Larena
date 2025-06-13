@@ -1,5 +1,4 @@
 import * as React from "react";
-import Background from "@/public/images/topography.svg";
 import {
   Body,
   Button,
@@ -17,14 +16,12 @@ type ContactEmailTemplateProps = {
   name: string;
   email: string;
   phone: string;
-  interest: string;
 };
 
 export const ContactEmailTemplate = ({
   email,
   name,
   phone,
-  interest,
 }: ContactEmailTemplateProps) => (
   <Html>
     <Head />
@@ -52,9 +49,6 @@ export const ContactEmailTemplate = ({
           </Text>
           <Text style={text}>
             Phone Number: <strong>{phone}</strong>
-          </Text>
-          <Text style={text}>
-            I am Interested in: <strong>{interest}</strong>
           </Text>
         </Section>
         <Text style={links}>
