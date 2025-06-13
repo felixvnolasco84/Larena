@@ -19,8 +19,9 @@ type Service = {
 };
 
 const services: Service[] = [
+
   {
-    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmw8C9E6JOuBwSVFXdP10RxsELTYrvJDgq2f8o",
+    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmmvSpOzRNu39jZnI20oY4hFNizlxrQWOq6cLt",
   },
   {
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmTjoQXdivJuSn8YENPqDKWv93QsjxFy7MpbeU",
@@ -29,17 +30,29 @@ const services: Service[] = [
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmdX8FZR5fkCjnmpJuaEUls0M4GreOqgN39YAX",
   },
   {
-    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmKuKnp1CFYLaqzngeMb1BSIPDRXdJA9y2ixC7",
+    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmayk2YzMwyTNe7tcEHKYqP9ovkzRsMWBiXAFf",
   },
+  
   {
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmO6NTWvz7udh684ERzCspg9iAPB1I5rDHnaSF",
   },
-
+  {
+    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmGt0OF8R8koPi5jg0eQs4Mvzmb2wXpxcCRYBS",
+  },
+  {
+    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSms8HDdRBJ5PFZodjLCBgHw27W18fivXQxVnE9",
+  },
   {
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmWAWkLVK1c8VYyJo6NfrlajXTAGiwtMKh0L7u",
   },
   {
+    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmKuKnp1CFYLaqzngeMb1BSIPDRXdJA9y2ixC7",
+  },
+  {
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmF1XTUWIMSQgDv5lHuI70d3kWnp9E8UATftLC",
+  },
+  {
+    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmbCfyokHexM89z2prNvmPQjSksEJuKZ7b13ho",
   },
   {
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmmFRBV4Nu39jZnI20oY4hFNizlxrQWOq6cLtf",
@@ -47,18 +60,12 @@ const services: Service[] = [
   {
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmWzanLgK1c8VYyJo6NfrlajXTAGiwtMKh0L7u",
   },
-  {
-    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSms8HDdRBJ5PFZodjLCBgHw27W18fivXQxVnE9",
-  },
+
   {
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmIlleNMAPOq6ysELgDCTfXjZoS3MJ0x8tv7cu",
   },
-  {
-    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmayk2YzMwyTNe7tcEHKYqP9ovkzRsMWBiXAFf",
-  },
-  {
-    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmbCfyokHexM89z2prNvmPQjSksEJuKZ7b13ho",
-  },
+
+
   {
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSm5axp4tL6BK1kJvWmjuFb0RqArEYoIC3hy2ld",
   },
@@ -86,8 +93,9 @@ const services: Service[] = [
   {
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmwzkG1QJOuBwSVFXdP10RxsELTYrvJDgq2f8o",
   },
+
   {
-    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmGt0OF8R8koPi5jg0eQs4Mvzmb2wXpxcCRYBS",
+    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmw8C9E6JOuBwSVFXdP10RxsELTYrvJDgq2f8o",
   },
 ];
 
