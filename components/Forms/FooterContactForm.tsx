@@ -90,16 +90,16 @@ export default function FooterContactForm() {
   return (
     <Form {...form}>
       <form className="w-full" onSubmit={form.handleSubmit(onSubmit)}>
-        <div className="grid gap-6 text-[#555555] lg:gap-12 w-full lg:w-1/2"> 
+        <div className="grid gap-6 text-[#555555] lg:gap-12 w-full lg:w-1/3"> 
           <div className="grid w-full items-center gap-1.5">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem className="space-y-0 bg-[#DEDEDE] rounded-[8px] p-2 text-[#555555]">
+                <FormItem className="space-y-0 bg-[#DEDEDE] rounded-[8px] px-2 py-2.5 text-[#555555]">
                   <FormControl className="bg-transparent">
                     <Input
-                      className="placeholder:text-[#555555]"
+                      className="placeholder:text-[#555555] placeholder:text-base pl-4"
                       placeholder="NAME"
                       autoCapitalize="none"
                       autoComplete="off"
@@ -119,11 +119,11 @@ export default function FooterContactForm() {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="space-y-0 bg-[#DEDEDE] rounded-[8px] p-2 text-[#555555]">
+                <FormItem className="space-y-0 bg-[#DEDEDE] rounded-[8px] px-2 py-2.5 text-[#555555]">
 
                   <FormControl className="bg-transparent">
                     <Input
-                      className="placeholder:text-[#555555]"
+                      className="placeholder:text-[#555555] placeholder:text-base pl-4"
                       placeholder="EMAIL"
                       autoCapitalize="none"
                       autoComplete="off"
@@ -141,10 +141,10 @@ export default function FooterContactForm() {
               control={form.control}
               name="phoneNumber"
               render={({ field }) => (
-                <FormItem className="space-y-0 bg-[#DEDEDE] rounded-[8px] p-2 text-[#555555]">
+                <FormItem className="space-y-0 bg-[#DEDEDE] rounded-[8px] px-2 py-2.5 text-[#555555]">
                   <FormControl className="bg-transparent">
                     <Input
-                      className="placeholder:text-[#555555]"
+                      className="placeholder:text-[#555555] placeholder:text-base pl-4"
                       placeholder="PHONE NUMBER"
                       autoCapitalize="none"
                       autoComplete="off"

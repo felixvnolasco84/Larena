@@ -23,17 +23,18 @@ const services: Service[] = [
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmw8C9E6JOuBwSVFXdP10RxsELTYrvJDgq2f8o",
   },
   {
-    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmKuKnp1CFYLaqzngeMb1BSIPDRXdJA9y2ixC7",
-  },
-  {
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmTjoQXdivJuSn8YENPqDKWv93QsjxFy7MpbeU",
-  },
-  {
-    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmO6NTWvz7udh684ERzCspg9iAPB1I5rDHnaSF",
   },
   {
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmdX8FZR5fkCjnmpJuaEUls0M4GreOqgN39YAX",
   },
+  {
+    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmKuKnp1CFYLaqzngeMb1BSIPDRXdJA9y2ixC7",
+  },
+  {
+    image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmO6NTWvz7udh684ERzCspg9iAPB1I5rDHnaSF",
+  },
+
   {
     image: "https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmWAWkLVK1c8VYyJo6NfrlajXTAGiwtMKh0L7u",
   },

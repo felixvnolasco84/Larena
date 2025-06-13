@@ -25,18 +25,18 @@ export default function Home() {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
         />
         <div className="absolute top-0 left-0 z-10 w-full h-full custom-grade"></div>
-        <div className="absolute left-0  -bottom-[2px] lg:-bottom-2 flex flex-col items-center justify-center gap-2 w-full z-20">
+        <div className="absolute left-0  -bottom-[2px] lg:-bottom-2 flex flex-col items-center justify-center gap-2 w-full z-20 lg:px-16">
           <Image className="w-full" src={Logo} alt="Rombo" />
         </div>
       </div>
-      <div className="mx-auto flex w-full flex-col justify-center 2xl:container lg:gap-8 xl:gap-0 items-center px-4">
+      <div className="mx-auto flex w-full flex-col justify-center 2xl:container items-center px-4">
         <h1
-          className={`${GiordanoGoldSerif.className} text-3xl xl:text-4xl 2xl:text-5xl 2xl:leading-[55px] w-full text-center`}
+          className={`${GiordanoGoldSerif.className} text-3xl lg:text-2xl xl:text-4xl 2xl:text-5xl 2xl:leading-[55px] w-full text-center`}
         >
           Exclusive Oceanview Residences in San José del Cabo
         </h1>
         <div className="flex w-full flex-col gap-8 xl:gap-16 mt-6 items-center">
-          <p className={GiordanoGoldSerif.className + "text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:leading-[40px] text-center text-[#555555] lg:leading-10"}>
+          <p className={GiordanoGoldSerif.className + "text-lg lg:text-base xl:text-2xl 2xl:text-3xl text-center text-[#555555] lg:leading-10 xl:leading-10 2xl:leading-10"}>
             Larena Is Located In The Prestigious Campestre San José Del Cabo, Surrounded By Golf Courses <br /> And Just Minutes From The Beach. Featuring 4-Bedroom Residences With Private Terraces, <br /> Premium Finishes, And Exclusive Amenities Designed For A Refined Coastal Lifestyle.
           </p>
           <Link href="https://recorrido-virtual-larena.vercel.app/" target="_blank" rel="noopener noreferrer">
@@ -52,11 +52,11 @@ export default function Home() {
 
       {/* <HomeGallery /> */}
 
-      <div className="mx-auto flex w-full flex-col justify-center 2xl:container lg:gap-8 xl:gap-0 items-center px-4">
+      <div className="mx-auto flex w-full flex-col justify-center 2xl:container items-center px-4">
         <h1
           className={`${GiordanoGoldSerif.className} text-3xl xl:text-4xl 2xl:text-5xl 2xl:leading-[55px] w-full text-center`}
         >
-          Spacious 3- and 4-bedroom units designed for comfort
+          Spacious 3- and 4-bedroom units <br /> designed for comfort
         </h1>
         <div className="flex w-full flex-col gap-8 xl:gap-16 mt-6 items-center">
           <p className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:leading-[40px] text-center">

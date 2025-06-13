@@ -13,14 +13,14 @@ export default function FooterComponent() {
       <div className="mx-auto flex w-11/12 flex-col gap-12">
         <div className="flex flex-col w-full gap-4">
           <h3
-            className={`${GiordanoGoldSerif.className} text-3xl xl:text-4xl 2xl:text-5xl 2xl:leading-[55px] w-full text-left`}
+            className={`${GiordanoGoldSerif.className} text-3xl 2xl:leading-[55px] w-full text-left`}
           >
             Contact us now
           </h3>
-          <p className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:leading-[40px] text-left">
+          <p className="text-base text-left">
             Our Team Is Here To Help With Any Questions, Schedule A Visit, <br />  Or Share The Full Brochure With You.
           </p>
-          <p className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:leading-[40px] text-left">
+          <p className="text-base text-left">
             Fill Out The Form Or Reach Us Directly — We Look Forward To <br /> Connecting With You.
           </p>
         </div>
