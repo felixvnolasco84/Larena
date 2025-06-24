@@ -17,8 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es-Mx">
+
       <body className={GiordanoGoldSerif.className}>
-        <div className="flex flex-col text-[#4A4A4A]">
+        <div className="flex flex-col text-[#4A4A4A] relative">
           <main>{children}</main>
           <Toaster />
           <FooterComponent />

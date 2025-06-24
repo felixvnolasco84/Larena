@@ -109,7 +109,7 @@ const MapComponent = () => {
                         >
                             <div className="relative">
                                 {/* Marker Circle */}
-                                <div className={`w-8 h-8 rounded-full border-2 transition-all duration-300 ${selectedLocation === location.id
+                                <div className={`lg:w-8 lg:h-8 w-6 h-6 rounded-full border-2 transition-all duration-300 ${selectedLocation === location.id
                                     ? 'bg-gray-800 border-gray-900 shadow-lg'
                                     : 'bg-white border-gray-400 hover:bg-gray-100'
                                     }`}>
@@ -119,7 +119,7 @@ const MapComponent = () => {
 
                                 {/* Connection Line (optional visual enhancement) */}
                                 {selectedLocation === location.id && (
-                                    <div className="absolute top-8 left-1/2 w-0.5 h-4 bg-gray-600 transform -translate-x-1/2"></div>
+                                    <div className="absolute top-6 lg:top-8 left-1/2 w-0.5 h-0 lg:h-4 bg-gray-600 transform -translate-x-1/2"></div>
                                 )}
                             </div>
                         </button>
