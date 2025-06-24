@@ -92,6 +92,7 @@ export default function Home() {
 
         <div className="grid lg:grid-cols-2 gap-4 ">
 
+          <div className="rounded-[15px] overflow-hidden flex">
           <MuxPlayer
             playbackId="2yJiGXZy6WNIJrcNMhV6RgQOoL00WjqdXU2yMxk301XcA"
             streamType="on-demand"
@@ -104,6 +105,8 @@ export default function Home() {
             className="w-full h-full object-cover"
 
           />
+          </div>
+          <div className="rounded-[15px] overflow-hidden flex">
           <MuxPlayer
             playbackId="RdVuP00L88v7ZphNFAWaF8C01fiV006IT8ZPFIKPvVasgw"
             streamType="on-demand"
@@ -115,6 +118,7 @@ export default function Home() {
             loop={true}
             className="w-full h-full object-cover"
           />
+          </div>
         </div>
         <MapComponent />
       </div>
