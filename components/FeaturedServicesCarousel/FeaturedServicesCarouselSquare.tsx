@@ -118,7 +118,7 @@ export default function FeaturedServicesCarouselSquare() {
                     alt="Rombo"
                     layout="fill"
 
-                    className="rounded-[15px] object-cover"
+                    className="rounded-[8px] lg:rounded-[15px] object-cover"
                   />
                 </CardHeader>
 

@@ -1,13 +1,11 @@
 import Image from "next/image";
-import HeroImageSecond from "@/public/images/HeroImageSecond.png";
 import FlatDiagramMobile from "@/public/images/Planta-Cuadrado (mobile).png";
 import FlatDiagramDesktop from "@/public/images/Planta-Horizontal (desktop).png";
-import Construction from "@/public/images/Construction.png";
 import Logo from "@/public/images/logo-white.svg";
 import { GiordanoGoldSerif } from "@/styles/fonts";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import MuxPlayer from "@mux/mux-player-react";
 
 import FeaturedServicesCarouselSquare from "@/components/FeaturedServicesCarousel/FeaturedServicesCarouselSquare";
 import MapComponent from "@/components/MapComponent";
@@ -16,7 +14,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-12 lg:gap-y-52 py-8">
 
-      <div className="relative flex h-[600px] min-w-max justify-center overflow-x-hidden lg:h-screen mx-4 rounded-[15px] overflow-hidden">
+      <div className="relative flex aspect-[5/6] lg:aspect-auto min-w-max justify-center overflow-x-hidden lg:h-screen mx-4 rounded-[15px] overflow-hidden">
         <Image
           src="https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmNyx50YT0bMtvxjAzWSL2R3oJF7mhwBaIUQsn"
           alt="Rombo"
@@ -25,7 +23,7 @@ export default function Home() {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
         />
         <div className="absolute top-0 left-0 z-10 w-full h-full custom-grade"></div>
-        <div className="absolute left-0  -bottom-[2px] lg:-bottom-2 flex flex-col items-center justify-center gap-2 w-full z-20 px-3 lg:px-16">
+        <div className="absolute left-0  -bottom-[2px] lg:-bottom-2 flex flex-col items-center justify-center gap-2 w-full z-20 px-3 lg:px-32">
           <Image className="w-full" src={Logo} alt="Rombo" />
         </div>
       </div>
@@ -36,7 +34,7 @@ export default function Home() {
           Exclusive Oceanview Residences in San José del Cabo
         </h1>
         <div className="flex w-full flex-col gap-8 xl:gap-16 mt-6 items-center">
-          <p className={GiordanoGoldSerif.className + "text-lg lg:text-base xl:text-2xl 2xl:text-3xl text-center text-[#555555] lg:leading-10 xl:leading-10 2xl:leading-10"}>
+          <p className={GiordanoGoldSerif.className + "text-lg lg:text-base xl:text-xl 2xl:text-2xl text-center text-[#555555] lg:leading-10 xl:leading-10 2xl:leading-10"}>
             Larena Is Located In The Prestigious Campestre San José Del Cabo, Surrounded By Golf Courses <br /> And Just Minutes From The Beach. Featuring 4-Bedroom Residences With Private Terraces, <br /> Premium Finishes, And Exclusive Amenities Designed For A Refined Coastal Lifestyle.
           </p>
           <Link href="https://recorrido-virtual-larena.vercel.app/" target="_blank" rel="noopener noreferrer">
@@ -59,7 +57,7 @@ export default function Home() {
           Spacious 3- and 4-bedroom units <br /> designed for comfort
         </h1>
         <div className="flex w-full flex-col gap-8 xl:gap-16 mt-6 items-center">
-          <p className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:leading-[40px] text-center">
+          <p className="text-lg lg:text-xl xl:text-xl 2xl:text-2xl 2xl:leading-[40px] text-center">
             GARDEN AND PENTHOUSE OPTIONS <br />
 
             MARBLE FLOORS, CUSTOM KITCHENS BY PIACERE, WOLF & <br />
@@ -93,14 +91,33 @@ export default function Home() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-4 ">
-          <video src="https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSmByDyTAhXkQnr7l1z6qGBxO4htjIUFPevN2uM" autoPlay loop muted className="w-full h-full object-cover rounded-[15px]" />
-          <video src="https://f5z6vohtd8.ufs.sh/f/9xW4M4QjXVSm9wBLWQjXVSmdgLybrsq16Aa7hlYMnpKPteif" autoPlay loop muted className="w-full h-full object-cover rounded-[15px]" />
+
+          <MuxPlayer
+            playbackId="2yJiGXZy6WNIJrcNMhV6RgQOoL00WjqdXU2yMxk301XcA"
+            streamType="on-demand"
+            metadata={{
+              video_title: "Residencia Quintazur Tlalpan",
+            }}
+            muted={true}
+            autoPlay={true}
+            loop={true}          
+            className="w-full h-full object-cover rounded-[15px] overflow-hidden"
+
+          />
+          <MuxPlayer
+            playbackId="RdVuP00L88v7ZphNFAWaF8C01fiV006IT8ZPFIKPvVasgw"
+            streamType="on-demand"
+            metadata={{
+              video_title: "Residencia Quintazur Tlalpan",
+            }}
+            muted={true}
+            autoPlay={true}
+            loop={true}
+            className="w-full h-full object-cover rounded-[15px] overflow-hidden"
+          />
         </div>
         <MapComponent />
-
       </div>
-
-
     </div>
   );
 }

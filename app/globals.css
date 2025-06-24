@@ -89,3 +89,8 @@
     width: 80%;
   }
 }
+
+mux-player {
+  /* Hide all controls at once */
+  --controls: none;
+}
