@@ -105,3 +105,13 @@ video {
   border-radius: 15px;
   overflow: hidden;
 }
+
+ul {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+
+a {
+  color: #6A88AE;
+}
