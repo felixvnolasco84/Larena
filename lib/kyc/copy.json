@@ -1,0 +1,50 @@
+{
+  "T1": {
+    "es": "La Ley Federal para la Prevención e Identificación de Operaciones con Recursos de Procedencia Ilícita (LFPIORPI) considera la compraventa de inmuebles como actividad vulnerable. Para cumplir con ella, le pedimos completar este formulario y adjuntar los documentos solicitados. Toma aproximadamente 10 minutos. Su información es confidencial y se trata conforme a nuestro Aviso de Privacidad.",
+    "en": "Mexico's Federal Anti-Money Laundering Law (LFPIORPI) classifies real estate transactions as a vulnerable activity. To comply, we ask you to complete this form and upload the requested documents. It takes about 10 minutes. Your information is confidential and handled according to our Privacy Notice."
+  },
+  "T2": {
+    "es": "El beneficiario controlador es la persona física que, directa o indirectamente, obtiene el beneficio de la operación o ejerce el control sobre el comprador (por ejemplo, quien aporta los recursos o quien finalmente será dueño del inmueble).",
+    "en": "The beneficial owner is the individual who, directly or indirectly, benefits from the transaction or exercises control over the buyer (for example, whoever provides the funds or will ultimately own the property)."
+  },
+  "T3": {
+    "es": "Por disposición de la LFPIORPI, no es posible recibir pagos en efectivo por encima del límite legal para la compraventa de inmuebles. Un asesor de OGC le contactará para confirmar la forma de pago.",
+    "en": "Under Mexican law (LFPIORPI), cash payments above the legal limit cannot be accepted for real estate purchases. An OGC representative will contact you to confirm the payment method."
+  },
+  "T4": {
+    "es": "Se consideran Personas Políticamente Expuestas, entre otros, jefes de Estado o de gobierno, líderes políticos, funcionarios gubernamentales, judiciales o militares de alta jerarquía, altos ejecutivos de empresas estatales y funcionarios o miembros importantes de partidos políticos y organismos internacionales.",
+    "en": "Politically Exposed Persons include, among others, heads of state or government, political leaders, senior government, judicial or military officials, senior executives of state-owned companies, and important officials or members of political parties and international organizations."
+  },
+  "T5": {
+    "es": "Suba una copia legible y vigente de cada documento. Solo se muestran los que aplican a su caso. Formatos aceptados: PDF, JPG, PNG o HEIC (foto desde su celular), hasta 10 MB por archivo.",
+    "en": "Upload a clear, current copy of each document. Only the ones that apply to you are shown. Accepted formats: PDF, JPG, PNG or HEIC (phone photo), up to 10 MB per file."
+  },
+  "T6": {
+    "es": "OGC es responsable del tratamiento de sus datos personales, que se usarán para identificarle, cumplir con la LFPIORPI y formalizar la operación de compraventa. Puede consultar el Aviso de Privacidad completo en [enlace ogc.mx/privacidad].",
+    "en": "OGC is responsible for processing your personal data, which will be used to identify you, comply with the LFPIORPI and formalize the purchase. The full Privacy Notice is available at [link ogc.mx/privacy]."
+  },
+  "T7": {
+    "es": "Autorizo a OGC a verificar la información y documentos proporcionados ante las autoridades y bases de datos correspondientes, incluyendo listas de prevención de lavado de dinero.",
+    "en": "I authorize OGC to verify the information and documents provided with the relevant authorities and databases, including anti-money laundering lists."
+  },
+  "T8": {
+    "es": "Manifiesto bajo protesta de decir verdad que la información proporcionada en este formulario es verdadera, correcta y completa, y me comprometo a notificar a OGC cualquier cambio.",
+    "en": "I declare under oath that the information provided in this form is true, correct and complete, and I agree to notify OGC of any changes."
+  },
+  "T9": {
+    "es": "Gracias. Hemos recibido su información y documentos (folio {kyc_id}). Nuestro equipo los revisará y le contactará si necesitamos algo adicional.",
+    "en": "Thank you. We have received your information and documents (reference {kyc_id}). Our team will review them and contact you if anything else is needed."
+  },
+  "T10": {
+    "es": "OGC · Recibimos su información KYC – {proyecto} {unidad}",
+    "en": "OGC · We received your KYC information – {proyecto} {unidad}"
+  },
+  "T11": {
+    "es": "Hola {pf_nombre}{pm_razon}:\n\nConfirmamos la recepción de su formulario Conozca a su Cliente para la unidad {unidad} de {proyecto} (folio {kyc_id}). Le contactaremos si se requiere información adicional.\n\nOGC",
+    "en": "Hello {pf_nombre}{pm_razon},\n\nWe confirm receipt of your Know Your Client form for unit {unidad} at {proyecto} (reference {kyc_id}). We will contact you if any additional information is needed.\n\nOGC"
+  },
+  "T12": {
+    "es": "Nuevo KYC: {proyecto} {unidad} – {pf_nombre}{pm_razon} – PEP: {pep} – Pago: {or_forma}",
+    "en": "—"
+  }
+}

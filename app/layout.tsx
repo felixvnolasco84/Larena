@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 import { GiordanoGoldSerif } from "@/styles/fonts";
 
-import FooterComponent from "@/components/Footer/FooterComponent";
+import SiteFooter from "@/components/Footer/SiteFooter";
 export const metadata: Metadata = {
   title: "LARENA",
   description: "",
@@ -16,13 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es-Mx">
-
+    <html lang="es-MX">
       <body className={GiordanoGoldSerif.className}>
         <div className="flex flex-col text-[#4A4A4A] relative">
-          <main>{children}</main>
+          <div>{children}</div>
           <Toaster />
-          <FooterComponent />
+          <SiteFooter />
         </div>
       </body>
     </html>

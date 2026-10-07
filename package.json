@@ -6,10 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "convex:dev": "convex dev",
+    "convex:auth-keys": "node scripts/convex-auth-keys.mjs",
+    "convex:file-secret": "node scripts/convex-file-secret.mjs"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.4.0",    
+    "@auth/core": "^0.41.1",
+    "@convex-dev/auth": "^0.0.96",
+    "@hookform/resolvers": "^3.4.0",
     "@mux/mux-player": "^3.4.1",
     "@mux/mux-player-react": "^3.3.4",
     "@radix-ui/react-checkbox": "^1.0.4",
@@ -20,6 +27,7 @@
     "@react-email/components": "^0.0.18",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "convex": "^1.46.0",
     "embla-carousel-react": "^8.0.4",
     "gsap": "^3.13.0",
     "lucide-react": "^0.378.0",
@@ -27,20 +35,27 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
-    "resend": "^3.2.0",
+    "resend": "^6.32.1",
     "sharp": "^0.34.2",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@edge-runtime/vm": "^5.0.0",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.3.3",
+    "@types/jsdom": "^30.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "convex-test": "^0.0.60",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "jsdom": "^26.1.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.7"
   }
 }

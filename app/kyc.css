@@ -1,0 +1,570 @@
+.kyc-shell {
+  --kyc-text: #4a4a4a;
+  --kyc-muted: #555;
+  --kyc-surface: #f7f7f7;
+  --kyc-input: #dedede;
+  color: var(--kyc-text);
+  min-height: 100vh;
+}
+.kyc-header,
+.kyc-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  max-width: 1120px;
+  margin: auto;
+  padding: 32px;
+}
+.kyc-header img {
+  width: 190px;
+  height: auto;
+}
+.kyc-header span,
+.kyc-footer {
+  font-size: 14px;
+}
+.kyc-main {
+  min-width: 0;
+  max-width: 1024px;
+  padding: 16px 32px 56px;
+  margin: auto;
+}
+.kyc-footer {
+  border-top: 1px solid #dedede;
+  padding-block: 24px;
+}
+.kyc-shell h1 {
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.3;
+  margin: 0 0 20px;
+}
+.kyc-shell h2 {
+  font-size: 26px;
+  margin: 0 0 16px;
+  line-height: 1.4;
+}
+.kyc-shell h3 {
+  font-size: 20px;
+  margin: 12px 0;
+}
+.kyc-shell p {
+  line-height: 1.7;
+  max-width: 70ch;
+}
+.kyc-eyebrow {
+  color: var(--kyc-muted);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.kyc-panel,
+.kyc-notice {
+  background: var(--kyc-surface);
+  border-radius: 15px;
+  padding: 40px;
+  min-width: 0;
+}
+.kyc-panel + .kyc-panel {
+  margin-top: 24px;
+}
+.kyc-intro {
+  margin-bottom: 28px;
+}
+.kyc-toolbar,
+.kyc-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.kyc-language {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.kyc-language select {
+  min-width: 72px;
+  min-height: 44px;
+  height: 44px;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid var(--kyc-input);
+  border-radius: 8px;
+  color: var(--kyc-text);
+  font-size: 16px;
+  line-height: 1.4;
+}
+.kyc-toolbar .kyc-eyebrow {
+  margin-bottom: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  flex: 1;
+}
+.kyc-panel-heading {
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+.kyc-panel-heading h2 {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+.kyc-panel-heading .kyc-status {
+  padding-top: 8px;
+  white-space: nowrap;
+}
+.kyc-actions {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #ccc;
+}
+.kyc-button {
+  padding: 13px 22px;
+  min-height: 46px;
+  background: #4a4a4a;
+  color: white;
+  border: 1px solid #4a4a4a;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.kyc-button:hover {
+  background: #333;
+  color: white;
+}
+.kyc-button.secondary {
+  background: white;
+  color: #4a4a4a;
+}
+.kyc-button.secondary:hover {
+  background: #eee;
+}
+.kyc-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.kyc-shell :is(button, input, textarea, select, a, canvas, h2):focus-visible {
+  outline: 2px solid #424d5e;
+  outline-offset: 4px;
+}
+.kyc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 24px;
+}
+.kyc-field {
+  min-width: 0;
+}
+.kyc-grid,
+.kyc-field fieldset {
+  min-inline-size: 0;
+}
+.kyc-field.wide {
+  grid-column: 1/-1;
+}
+.kyc-label,
+.kyc-field legend {
+  display: block;
+  font-size: 16px;
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+.kyc-input {
+  border: 1px solid transparent;
+  background: var(--kyc-input);
+  color: #4a4a4a;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
+  min-height: 52px;
+}
+.kyc-upload {
+  position: relative;
+  width: 100%;
+}
+.kyc-upload-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.kyc-upload-trigger {
+  display: block;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background: white;
+  color: var(--kyc-text);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  pointer-events: none;
+}
+.kyc-upload:has(.kyc-upload-input:focus-visible) {
+  outline: 2px solid #424d5e;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+.kyc-upload-input:disabled {
+  cursor: not-allowed;
+}
+.kyc-upload-input:disabled + .kyc-upload-trigger {
+  background: var(--kyc-input);
+}
+.kyc-input[aria-invalid="true"] {
+  border-color: #a42b26;
+}
+select.kyc-input {
+  height: 54px;
+}
+.kyc-input::placeholder {
+  color: #555;
+}
+textarea.kyc-input {
+  min-height: 120px;
+  resize: vertical;
+}
+.kyc-name {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.kyc-name label {
+  font-size: 14px;
+}
+.kyc-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.kyc-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+  cursor: pointer;
+}
+.kyc-choice input {
+  accent-color: #4a4a4a;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.kyc-choice span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.kyc-options .kyc-choice {
+  min-height: 44px;
+  align-items: center;
+}
+.kyc-options .kyc-choice input {
+  margin-top: 0;
+}
+.kyc-helper {
+  display: block;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+.kyc-error {
+  color: #a42b26;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+.kyc-alert {
+  padding: 16px 20px;
+  border-left: 3px solid #424d5e;
+  background: #ededed;
+  margin-block: 20px;
+  line-height: 1.7;
+}
+.kyc-progress-label {
+  font-size: 14px;
+  color: var(--kyc-muted);
+  margin: 0;
+}
+.kyc-steps {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin: 12px 0 28px;
+  list-style: none;
+  padding: 0;
+}
+.kyc-steps li {
+  padding-top: 12px;
+  border-top: 2px solid #ddd;
+  color: #555;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.kyc-steps li.active {
+  border-color: #4a4a4a;
+  color: #333;
+}
+.kyc-step-number,
+.kyc-step-label {
+  display: block;
+}
+.kyc-step-label {
+  margin-top: 4px;
+}
+.kyc-files {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.kyc-files li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+}
+.kyc-files span {
+  overflow-wrap: anywhere;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.6;
+}
+.kyc-files .kyc-link {
+  min-height: 44px;
+  min-width: 44px;
+  flex-shrink: 0;
+}
+.kyc-link {
+  background: transparent;
+  color: #424d5e;
+  text-decoration: underline;
+  cursor: pointer;
+  border: 0;
+  padding: 8px 2px;
+  font-size: 14px;
+}
+.kyc-signature {
+  width: 100%;
+  height: 180px;
+  background: white;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  touch-action: none;
+}
+.kyc-review {
+  margin-top: 24px;
+}
+.kyc-review dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+}
+.kyc-review dt,
+.kyc-review dd {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+.kyc-review dd {
+  margin: 0;
+}
+.kyc-status {
+  font-size: 13px;
+  color: #555;
+}
+.kyc-table-wrap {
+  overflow-x: auto;
+}
+.kyc-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.kyc-table th,
+.kyc-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid #ccc;
+  line-height: 1.6;
+}
+.kyc-table a {
+  color: #424d5e;
+  text-decoration: underline;
+}
+.kyc-filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 16px;
+  margin-block: 24px;
+}
+.kyc-login {
+  max-width: 480px;
+  margin: auto;
+}
+.kyc-login .kyc-button {
+  margin-top: 24px;
+}
+.kyc-inline-code {
+  overflow-wrap: anywhere;
+  padding: 16px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  margin-block: 16px;
+  font-size: 14px;
+}
+@media (max-width: 640px) {
+  .kyc-header {
+    padding: 24px 20px;
+    align-items: center;
+  }
+  .kyc-header img {
+    width: 128px;
+  }
+  .kyc-header span {
+    font-size: 14px;
+    max-width: 130px;
+    text-align: right;
+  }
+  .kyc-main {
+    padding: 8px 16px 32px;
+  }
+  .kyc-panel,
+  .kyc-notice {
+    padding: 24px 16px;
+  }
+  .kyc-shell h1 {
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 16px;
+  }
+  .kyc-shell h2 {
+    font-size: 23px;
+    line-height: 1.4;
+  }
+  .kyc-panel-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  .kyc-panel-heading .kyc-status {
+    padding: 0;
+  }
+  .kyc-toolbar {
+    gap: 12px;
+  }
+  .kyc-grid,
+  .kyc-name,
+  .kyc-filter {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .kyc-steps {
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+  .kyc-step-number {
+    font-size: 13px;
+  }
+  .kyc-step-label {
+    display: none;
+  }
+  .kyc-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+  }
+  .kyc-actions > .kyc-button,
+  .kyc-actions > .kyc-link {
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+  }
+  .kyc-actions > .kyc-button:last-child {
+    grid-row: 1;
+  }
+  .kyc-actions > .kyc-link {
+    grid-row: 3;
+  }
+  .kyc-files li {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 12px;
+  }
+  .kyc-files span {
+    grid-column: 1 / -1;
+  }
+  .kyc-files .kyc-link {
+    text-align: left;
+  }
+  .kyc-footer {
+    padding: 24px 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13px;
+  }
+  .kyc-footer > span {
+    flex-basis: 100%;
+  }
+  .kyc-review dl {
+    display: block;
+  }
+  .kyc-review dt {
+    border: 0;
+    padding-bottom: 0;
+    font-size: 14px;
+    color: #555;
+  }
+  .kyc-review dd {
+    padding-top: 4px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kyc-shell * {
+    scroll-behavior: auto;
+    transition: none;
+    animation: none;
+  }
+}
+.kyc-privacy section + section {
+  margin-top: 36px;
+}
+.kyc-privacy p {
+  margin-block: 14px;
+}
+.kyc-privacy-profile {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 12px 24px;
+  line-height: 1.7;
+}
+.kyc-privacy-profile dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 640px) {
+  .kyc-privacy-profile {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .kyc-privacy-profile dd {
+    margin-bottom: 14px;
+  }
+}
