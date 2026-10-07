@@ -26,7 +26,7 @@ const ResendOTP = Email({
     const { error } = await new Resend(process.env.RESEND_API_KEY).emails.send({
       from: process.env.KYC_EMAIL_FROM,
       to: identifier,
-      subject: "OGC · Acceso al panel KYC",
+      subject: "LARENA · Acceso al panel KYC",
       text: `Tu código de acceso es ${token}. Expira en 15 minutos.`,
     });
     if (error) return fail("EMAIL_UNAVAILABLE");

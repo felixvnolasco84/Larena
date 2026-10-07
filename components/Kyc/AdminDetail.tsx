@@ -12,6 +12,7 @@ import {
   type Language,
 } from "@/lib/kyc/model";
 import { downloadFile } from "@/lib/kyc/download";
+import KycSelect from "./Select";
 export default function AdminDetail({ id }: { id: Id<"submissions"> }) {
   const data = useQuery(api.kyc.detail, { id }),
     regenerate = useAction(api.kyc.regenerate),
@@ -38,14 +39,17 @@ export default function AdminDetail({ id }: { id: Id<"submissions"> }) {
     <>
       <div className="kyc-toolbar">
         <h1>{s.folio || `Unidad ${i.unidad}`}</h1>
-        <select
-          aria-label="Idioma de las respuestas"
-          value={language}
-          onChange={(e) => setLanguage(e.target.value as Language)}
-        >
-          <option value="es">ES</option>
-          <option value="en">EN</option>
-        </select>
+        <div className="kyc-language">
+          <label htmlFor="detail-language">Idioma</label>
+          <KycSelect
+            id="detail-language"
+            compact
+            aria-label="Idioma de las respuestas"
+            value={language}
+            onValueChange={(value) => setLanguage(value as Language)}
+            options={[{ value: "es", label: "ES" }, { value: "en", label: "EN" }]}
+          />
+        </div>
       </div>
       <div className="kyc-panel">
         <p>

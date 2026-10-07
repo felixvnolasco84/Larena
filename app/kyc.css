@@ -1,8 +1,11 @@
-.kyc-shell {
+.kyc-shell,
+.kyc-select-content {
   --kyc-text: #4a4a4a;
   --kyc-muted: #555;
   --kyc-surface: #f7f7f7;
   --kyc-input: #dedede;
+}
+.kyc-shell {
   color: var(--kyc-text);
   min-height: 100vh;
 }
@@ -86,8 +89,9 @@
   font-size: 14px;
   white-space: nowrap;
 }
-.kyc-language select {
-  min-width: 72px;
+.kyc-select-compact {
+  width: 84px;
+  flex-shrink: 0;
   min-height: 44px;
   height: 44px;
   padding: 8px 12px;
@@ -97,6 +101,48 @@
   color: var(--kyc-text);
   font-size: 16px;
   line-height: 1.4;
+}
+.kyc-select-trigger {
+  gap: 12px;
+  height: auto;
+  text-align: left;
+}
+.kyc-select-trigger.kyc-input {
+  min-height: 54px;
+}
+.kyc-select-trigger > span {
+  min-width: 0;
+  flex: 1;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.kyc-select-trigger svg {
+  flex-shrink: 0;
+}
+.kyc-select-content[data-state] {
+  width: var(--radix-select-trigger-width);
+  max-width: calc(100vw - 32px);
+  max-height: min(320px, var(--radix-select-content-available-height));
+  background: white;
+  color: var(--kyc-text);
+  border: 1px solid var(--kyc-input);
+  border-radius: 8px;
+  animation: none;
+}
+.kyc-select-item {
+  min-height: 44px;
+  padding: 10px 12px 10px 36px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.kyc-select-item[data-highlighted] {
+  background: var(--kyc-surface);
+  color: var(--kyc-text);
+  outline: 2px solid #424d5e;
+  outline-offset: -2px;
 }
 .kyc-toolbar .kyc-eyebrow {
   margin-bottom: 0;
@@ -224,9 +270,6 @@
 }
 .kyc-input[aria-invalid="true"] {
   border-color: #a42b26;
-}
-select.kyc-input {
-  height: 54px;
 }
 .kyc-input::placeholder {
   color: #555;

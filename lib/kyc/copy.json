@@ -36,12 +36,12 @@
     "en": "Thank you. We have received your information and documents (reference {kyc_id}). Our team will review them and contact you if anything else is needed."
   },
   "T10": {
-    "es": "OGC · Recibimos su información KYC – {proyecto} {unidad}",
-    "en": "OGC · We received your KYC information – {proyecto} {unidad}"
+    "es": "LARENA · Recibimos su información KYC – {proyecto} {unidad}",
+    "en": "LARENA · We received your KYC information – {proyecto} {unidad}"
   },
   "T11": {
-    "es": "Hola {pf_nombre}{pm_razon}:\n\nConfirmamos la recepción de su formulario Conozca a su Cliente para la unidad {unidad} de {proyecto} (folio {kyc_id}). Le contactaremos si se requiere información adicional.\n\nOGC",
-    "en": "Hello {pf_nombre}{pm_razon},\n\nWe confirm receipt of your Know Your Client form for unit {unidad} at {proyecto} (reference {kyc_id}). We will contact you if any additional information is needed.\n\nOGC"
+    "es": "Hola {pf_nombre}{pm_razon}:\n\nConfirmamos la recepción de su formulario Conozca a su Cliente para la unidad {unidad} de {proyecto} (folio {kyc_id}). Le contactaremos si se requiere información adicional.\n\nLARENA",
+    "en": "Hello {pf_nombre}{pm_razon},\n\nWe confirm receipt of your Know Your Client form for unit {unidad} at {proyecto} (reference {kyc_id}). We will contact you if any additional information is needed.\n\nLARENA"
   },
   "T12": {
     "es": "Nuevo KYC: {proyecto} {unidad} – {pf_nombre}{pm_razon} – PEP: {pep} – Pago: {or_forma}",

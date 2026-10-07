@@ -15,7 +15,7 @@ describe("KYC email transport", () => {
   beforeEach(() => {
     send.mockReset().mockResolvedValue({ data: { id: "test-email" }, error: null });
     vi.stubEnv("RESEND_API_KEY", "test-key");
-    vi.stubEnv("KYC_EMAIL_FROM", "OGC <kyc@example.test>");
+    vi.stubEnv("KYC_EMAIL_FROM", "info@larena.mx");
     vi.stubEnv("KYC_NOTIFICATION_EMAILS", "staff@example.test");
     vi.stubEnv("SITE_URL", "https://larena.example.test/");
   });
@@ -76,7 +76,13 @@ describe("KYC email transport", () => {
       }
       expect(send).toHaveBeenCalledTimes(2);
       const [buyer, notification] = send.mock.calls;
+      for (const [message] of send.mock.calls) {
+        expect(message.from).toBe("info@larena.mx");
+        expect(`${message.subject}\n${message.text}`).not.toMatch(/ogc/i);
+      }
       expect(buyer[0].to).toEqual(["buyer@example.test"]);
+      expect(buyer[0].subject).toMatch(/^LARENA · /);
+      expect(buyer[0].text).toMatch(/\n\nLARENA$/);
       expect(buyer[0].subject).toContain(language === "en" ? "We received" : "Recibimos");
       expect(buyer[0].text).toContain("KYC-LAR-0001");
       expect(notification[0].to).toEqual(["staff@example.test"]);

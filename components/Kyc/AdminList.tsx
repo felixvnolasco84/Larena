@@ -5,6 +5,7 @@ import Link from "next/link";
 import { api } from "@/convex/_generated/api";
 import { PROJECTS } from "@/lib/kyc/model";
 import InvitationForm from "./InvitationForm";
+import KycSelect from "./Select";
 export default function AdminList() {
   const [create, setCreate] = useState(false),
     [status, setStatus] = useState(""),
@@ -30,40 +31,41 @@ export default function AdminList() {
       {create && <InvitationForm onClose={() => setCreate(false)} />}
       <div className="kyc-panel" style={{ marginTop: 24 }}>
         <div className="kyc-filter">
-          <label>
-            Estado
-            <select
-              className="kyc-input"
+          <div>
+            <label className="kyc-label" htmlFor="filter-status">Estado</label>
+            <KycSelect
+              id="filter-status"
               value={status}
-              onChange={(e) => setStatus(e.target.value)}
-            >
-              <option value="">Todos</option>
-              <option value="borrador">Borrador</option>
-              <option value="enviado">Enviado</option>
-            </select>
-          </label>
-          <label>
-            Proyecto
-            <select
-              className="kyc-input"
+              onValueChange={setStatus}
+              options={[
+                { value: "", label: "Todos" },
+                { value: "borrador", label: "Borrador" },
+                { value: "enviado", label: "Enviado" },
+              ]}
+            />
+          </div>
+          <div>
+            <label className="kyc-label" htmlFor="filter-project">Proyecto</label>
+            <KycSelect
+              id="filter-project"
               value={project}
-              onChange={(e) => setProject(e.target.value)}
-            >
-              <option value="">Todos</option>
-              {PROJECTS.map((p) => (
-                <option key={p}>{p}</option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Buscar por folio o unidad
+              onValueChange={setProject}
+              options={[
+                { value: "", label: "Todos" },
+                ...PROJECTS.map((p) => ({ value: p, label: p })),
+              ]}
+            />
+          </div>
+          <div>
+            <label className="kyc-label" htmlFor="filter-search">Buscar por folio o unidad</label>
             <input
+              id="filter-search"
               className="kyc-input"
               type="search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-          </label>
+          </div>
         </div>
         <div className="kyc-table-wrap">
           <table className="kyc-table">

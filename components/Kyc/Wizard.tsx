@@ -22,6 +22,7 @@ import {
   type Name,
 } from "@/lib/kyc/model";
 import Signature from "./Signature";
+import KycSelect from "./Select";
 
 export type WizardData = {
   invitation: BuyerContext & {
@@ -277,22 +278,22 @@ export default function Wizard({
         <div className="kyc-eyebrow">
           {data.invitation.proyecto} · {data.invitation.unidad}
         </div>
-        <label className="kyc-language">
-          {t(language, "Idioma", "Language")}
-          <select
+        <div className="kyc-language">
+          <label htmlFor="form-language">{t(language, "Idioma", "Language")}</label>
+          <KycSelect
+            id="form-language"
+            compact
             value={language}
             disabled={busy}
-            onChange={(e) => {
-              setLanguage(e.target.value as Language);
+            onValueChange={(value) => {
+              setLanguage(value as Language);
               dirty.current = true;
               setErrors({});
             }}
             aria-label="Idioma / Language"
-          >
-            <option value="es">ES</option>
-            <option value="en">EN</option>
-          </select>
-        </label>
+            options={[{ value: "es", label: "ES" }, { value: "en", label: "EN" }]}
+          />
+        </div>
       </div>
       <h1>{t(language, "Conozca a su Cliente", "Know Your Client")}</h1>
       <p className="kyc-progress-label">
@@ -616,27 +617,18 @@ export default function Wizard({
                         />
                       )}
                       {k === "country" && (
-                        <select
+                        <KycSelect
                           id={f.id}
-                          className="kyc-input"
                           value={typeof value === "string" ? value : ""}
-                          onChange={(e) => update(f.id, e.target.value)}
+                          onValueChange={(next) => update(f.id, next)}
+                          disabled={busy}
                           aria-invalid={!!error}
                           aria-describedby={error ? `${f.id}-error` : undefined}
-                        >
-                          <option value="">
-                            {t(
-                              language,
-                              "Selecciona un país",
-                              "Select a country",
-                            )}
-                          </option>
-                          {countries(language).map((o) => (
-                            <option key={o.value} value={o.value}>
-                              {o.label}
-                            </option>
-                          ))}
-                        </select>
+                          options={[
+                            { value: "", label: t(language, "Selecciona un país", "Select a country") },
+                            ...countries(language),
+                          ]}
+                        />
                       )}
                       {["radio", "multi"].includes(k) && (
                         <fieldset

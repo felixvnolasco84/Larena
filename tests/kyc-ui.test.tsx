@@ -12,6 +12,18 @@ import Wizard, {
   type WizardData,
   type WizardOperations,
 } from "../components/Kyc/Wizard";
+beforeEach(() => {
+  Object.defineProperty(HTMLElement.prototype, "scrollIntoView", { configurable: true, value: vi.fn() });
+  vi.stubGlobal("ResizeObserver", class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  });
+});
+function choose(label: string, option: string) {
+  fireEvent.keyDown(screen.getByRole("combobox", { name: label }), { key: "Enter" });
+  fireEvent.click(screen.getByRole("option", { name: option }));
+}
 afterEach(() => {
   cleanup();
   vi.restoreAllMocks();
@@ -55,9 +67,7 @@ describe("Draft interaction", () => {
       ),
       { target: { value: "SYNTHETIC-TAX-ID" } },
     );
-    fireEvent.change(screen.getByLabelText("Idioma / Language"), {
-      target: { value: "en" },
-    });
+    choose("Idioma / Language", "EN");
     expect(
       (
         screen.getByLabelText(
@@ -75,6 +85,17 @@ describe("Draft interaction", () => {
       0,
     );
     expect(screen.getByRole("status").textContent).toBe("Saved");
+  });
+  it("translates the selected country without changing the saved ISO code", async () => {
+    const ops = operations();
+    render(<Wizard data={data} operations={ops} />);
+    choose("País de residencia fiscal *", "Alemania");
+    choose("Idioma / Language", "EN");
+    expect(screen.getByRole("combobox", { name: "Country of tax residence *" }).textContent).toBe("Germany");
+    await act(async () => { await vi.advanceTimersByTimeAsync(900); });
+    expect(ops.save).toHaveBeenLastCalledWith(
+      expect.objectContaining({ pf_pais_fiscal: "DE" }), "en", 1, 0,
+    );
   });
   it("preserves unsaved entries on network failure and permits retry", async () => {
     const save = vi

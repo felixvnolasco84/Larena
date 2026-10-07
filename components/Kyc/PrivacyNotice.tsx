@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { t, type Language } from "@/lib/kyc/model";
 import { completePrivacyProfile, type PrivacyProfile } from "@/lib/kyc/privacy";
+import KycSelect from "./Select";
 const dataLaw = "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf";
 const amlLaw = "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPIORPI.pdf";
 export default function PrivacyNotice({
@@ -16,17 +17,17 @@ export default function PrivacyNotice({
     <article lang={language} className="kyc-privacy">
       <div className="kyc-toolbar">
         <div className="kyc-eyebrow">LARENA · OGC · KYC</div>
-        <label className="kyc-language">
-          {paragraph("Idioma", "Language")}
-          <select
+        <div className="kyc-language">
+          <label htmlFor="privacy-language">{paragraph("Idioma", "Language")}</label>
+          <KycSelect
+            id="privacy-language"
+            compact
             aria-label="Idioma / Language"
             value={language}
-            onChange={(e) => setLanguage(e.target.value as Language)}
-          >
-            <option value="es">ES</option>
-            <option value="en">EN</option>
-          </select>
-        </label>
+            onValueChange={(value) => setLanguage(value as Language)}
+            options={[{ value: "es", label: "ES" }, { value: "en", label: "EN" }]}
+          />
+        </div>
       </div>
       <h1>
         {paragraph("Aviso de privacidad integral", "Full Privacy Notice")}

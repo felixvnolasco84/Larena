@@ -3,12 +3,15 @@ import { useAction } from "convex/react";
 import { useState } from "react";
 import { api } from "@/convex/_generated/api";
 import { PROJECTS, type Answers, type BuyerContext } from "@/lib/kyc/model";
+import KycSelect from "./Select";
 export default function InvitationForm({ onClose }: { onClose: () => void }) {
   const create = useAction(api.kyc.createInvitation);
   const [busy, setBusy] = useState(false),
     [link, setLink] = useState(""),
     [error, setError] = useState(""),
     [copied, setCopied] = useState(false),
+    [project, setProject] = useState("Larena"),
+    [origin, setOrigin] = useState("Mexicana"),
     [buyer, setBuyer] =
       useState<BuyerContext["tipo_persona"]>("Persona física");
   return (
@@ -86,52 +89,55 @@ export default function InvitationForm({ onClose }: { onClose: () => void }) {
           }}
         >
           <fieldset disabled={busy} className="kyc-grid">
-            <label className="kyc-label">
-              Proyecto
-              <select
-                className="kyc-input"
+            <div>
+              <label className="kyc-label" htmlFor="invite-project">Proyecto</label>
+              <KycSelect
+                id="invite-project"
                 name="project"
-                defaultValue="Larena"
-              >
-                {PROJECTS.map((p) => (
-                  <option key={p}>{p}</option>
-                ))}
-              </select>
-            </label>
-            <label className="kyc-label">
-              Unidad *
+                value={project}
+                onValueChange={setProject}
+                disabled={busy}
+                options={PROJECTS.map((p) => ({ value: p, label: p }))}
+              />
+            </div>
+            <div>
+              <label className="kyc-label" htmlFor="invite-unit">Unidad *</label>
               <input
+                id="invite-unit"
                 className="kyc-input"
                 name="unit"
                 required
                 maxLength={100}
                 placeholder="C-302"
               />
-            </label>
-            <label className="kyc-label">
-              Asesor o broker
-              <input className="kyc-input" name="advisor" maxLength={150} />
-            </label>
-            <label className="kyc-label">
-              Tipo de comprador
-              <select
-                className="kyc-input"
+            </div>
+            <div>
+              <label className="kyc-label" htmlFor="invite-advisor">Asesor o broker</label>
+              <input id="invite-advisor" className="kyc-input" name="advisor" maxLength={150} />
+            </div>
+            <div>
+              <label className="kyc-label" htmlFor="invite-buyer">Tipo de comprador</label>
+              <KycSelect
+                id="invite-buyer"
                 value={buyer}
-                onChange={(e) =>
-                  setBuyer(e.target.value as BuyerContext["tipo_persona"])
+                onValueChange={(value) =>
+                  setBuyer(value as BuyerContext["tipo_persona"])
                 }
-              >
-                <option>Persona física</option>
-                <option>Persona moral</option>
-              </select>
-            </label>
-            <label className="kyc-label">
-              Origen del comprador
-              <select className="kyc-input" name="origin">
-                <option>Mexicana</option>
-                <option>Extranjera</option>
-              </select>
-            </label>
+                disabled={busy}
+                options={["Persona física", "Persona moral"].map((value) => ({ value, label: value }))}
+              />
+            </div>
+            <div>
+              <label className="kyc-label" htmlFor="invite-origin">Origen del comprador</label>
+              <KycSelect
+                id="invite-origin"
+                name="origin"
+                value={origin}
+                onValueChange={setOrigin}
+                disabled={busy}
+                options={["Mexicana", "Extranjera"].map((value) => ({ value, label: value }))}
+              />
+            </div>
             {buyer === "Persona física" ? (
               <div className="kyc-field wide kyc-name">
                 <label>
@@ -148,30 +154,32 @@ export default function InvitationForm({ onClose }: { onClose: () => void }) {
                 </label>
               </div>
             ) : (
-              <label>
-                Razón social
-                <input className="kyc-input" name="name" maxLength={500} />
-              </label>
+              <div>
+                <label className="kyc-label" htmlFor="invite-name">Razón social</label>
+                <input id="invite-name" className="kyc-input" name="name" maxLength={500} />
+              </div>
             )}
-            <label>
-              Correo del comprador
+            <div>
+              <label className="kyc-label" htmlFor="invite-email">Correo del comprador</label>
               <input
+                id="invite-email"
                 className="kyc-input"
                 name="email"
                 type="email"
                 maxLength={500}
               />
-            </label>
-            <label>
-              Teléfono del comprador
+            </div>
+            <div>
+              <label className="kyc-label" htmlFor="invite-phone">Teléfono del comprador</label>
               <input
+                id="invite-phone"
                 className="kyc-input"
                 name="phone"
                 type="tel"
                 placeholder="+52…"
                 maxLength={30}
               />
-            </label>
+            </div>
             <button type="submit" className="kyc-button">
               {busy ? "Creando…" : "Crear enlace privado"}
             </button>
