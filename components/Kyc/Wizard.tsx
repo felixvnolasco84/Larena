@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { CheckCircle2, FileText, UploadCloud } from "lucide-react";
 import {
   fields,
   kind,
@@ -23,6 +24,7 @@ import {
 } from "@/lib/kyc/model";
 import Signature from "./Signature";
 import KycSelect from "./Select";
+import PhoneInput from "./PhoneInput";
 
 export type WizardData = {
   invitation: BuyerContext & {
@@ -75,10 +77,20 @@ export default function Wizard({
   latest.current = { answers, language, step };
   const confirmation = useRef<Record<string, string>>({});
   const [confirmEmail, setConfirmEmail] = useState<Record<string, string>>({});
+  const [uploadingFile, setUploadingFile] = useState<{ field: string; name: string } | null>(null);
+  const [confirmingFiles, setConfirmingFiles] = useState<{ field: string; name: string; size: number }[]>([]);
+  useEffect(() => {
+    setConfirmingFiles((current) => {
+      const waiting = current.filter((pending) => !data.files.some((file) => file.field === pending.field && file.name === pending.name && file.size === pending.size));
+      return waiting.length === current.length ? current : waiting;
+    });
+  }, [data.files, confirmingFiles]);
   const conflict = useRef(false);
   const active = fields.filter(
     (f) => stepOf(f) === step && visible(f, data.invitation, answers),
   );
+  const requiredDocuments = active.filter((f) => kind(f) === "file" && f.required);
+  const completedDocuments = requiredDocuments.filter((f) => data.files.some((file) => file.field === f.id)).length;
   function update(id: string, value: Answer) {
     setAnswers((a) => ({ ...a, [id]: value }));
     dirty.current = true;
@@ -209,16 +221,21 @@ export default function Wizard({
       return false;
     }
     setBusy(true);
+    setUploadingFile({ field, name: file.name });
+    setErrors((e) => ({ ...e, [field]: "" }));
     setMessage("");
     try {
       await flush();
       await operations.upload(field, file);
+      setConfirmingFiles((current) => [...current, { field, name: file.name, size: file.size }]);
       setErrors((e) => ({ ...e, [field]: "" }));
       return true;
     } catch (error) {
       failure(error);
+      setErrors((e) => ({ ...e, [field]: t(language, "No se pudo subir el archivo. Selecciónalo de nuevo para reintentar.", "The file could not be uploaded. Select it again to retry.") }));
       return false;
     } finally {
+      setUploadingFile(null);
       setBusy(false);
     }
   }
@@ -434,6 +451,11 @@ export default function Wizard({
                     value = answers[f.id],
                     error = errors[f.id],
                     label = copyFor(f.id) || f[language];
+                  const isDocument = ["file", "signature"].includes(k);
+                  const fieldFiles = data.files.filter((file) => file.field === f.id);
+                  const isUploading = uploadingFile?.field === f.id;
+                  const confirming = confirmingFiles.filter((file) => file.field === f.id);
+                  const isSavingFile = isUploading || confirming.length > 0;
                   if (k === "paragraph")
                     return (
                       <div key={f.id} className="kyc-field wide">
@@ -469,12 +491,19 @@ export default function Wizard({
                             </a>
                           )}
                         </p>
+                        {f.id === "doc_intro" && requiredDocuments.length > 0 && (
+                          <div className="kyc-document-progress" role="status">
+                            <span>{completedDocuments} {t(language, "de", "of")} {requiredDocuments.length} {t(language, "documentos obligatorios adjuntados", "required documents attached")}</span>
+                            <progress value={completedDocuments} max={requiredDocuments.length} aria-label={t(language, "Documentos obligatorios adjuntados", "Required documents attached")} />
+                          </div>
+                        )}
                       </div>
                     );
                   return (
                     <div
                       key={f.id}
-                      className={`kyc-field ${["multi", "radio", "check", "signature", "name", "textarea"].includes(k) ? "wide" : ""}`}
+                      className={`kyc-field ${["multi", "radio", "check", "signature", "name", "textarea", "file"].includes(k) ? "wide" : ""} ${isDocument ? "kyc-document" : ""}`}
+                      data-upload-state={isDocument ? isSavingFile ? "uploading" : error ? "error" : fieldFiles.length ? "complete" : "empty" : undefined}
                     >
                       {!["radio", "multi", "check"].includes(k) && (
                         <label
@@ -545,7 +574,18 @@ export default function Wizard({
                           )}
                         </div>
                       ) : null}
-                      {["text", "phone", "email"].includes(k) && (
+                      {k === "phone" && (
+                        <PhoneInput
+                          id={f.id}
+                          value={typeof value === "string" ? value : ""}
+                          onChange={(next) => update(f.id, next)}
+                          language={language}
+                          disabled={busy}
+                          aria-invalid={!!error}
+                          aria-describedby={error ? `${f.id}-error` : undefined}
+                        />
+                      )}
+                      {["text", "email"].includes(k) && (
                         <>
                           <input
                             id={f.id}
@@ -553,21 +593,14 @@ export default function Wizard({
                             type={
                               k === "email"
                                 ? "email"
-                                : k === "phone"
-                                  ? "tel"
-                                  : "text"
+                                : "text"
                             }
                             autoComplete={
                               k === "email"
                                 ? "email"
-                                : k === "phone"
-                                  ? "tel"
-                                  : "off"
+                                : "off"
                             }
                             value={typeof value === "string" ? value : ""}
-                            placeholder={
-                              k === "phone" ? "+52 624 123 4567" : undefined
-                            }
                             onChange={(e) => update(f.id, e.target.value)}
                             aria-invalid={!!error}
                             aria-describedby={
@@ -688,6 +721,20 @@ export default function Wizard({
                       )}
                       {["file", "signature"].includes(k) && (
                         <>
+                          <div className="kyc-document-status" role="status" id={`${f.id}-status`}>
+                            {isSavingFile ? <UploadCloud size={18} aria-hidden="true" /> : fieldFiles.length > 0 && !error ? <CheckCircle2 size={18} aria-hidden="true" /> : null}
+                            {isUploading
+                              ? t(language, "Subiendo archivo…", "Uploading file…")
+                              : confirming.length > 0
+                                ? t(language, "Confirmando archivo…", "Confirming file…")
+                              : error
+                                ? t(language, "Revisa el archivo", "Check the file")
+                                : fieldFiles.length > 0
+                                  ? t(language, "Completo", "Complete")
+                                  : t(language, "Sin archivo adjunto", "No file attached")}
+                          </div>
+                          {isUploading && <p className="kyc-upload-pending">{uploadingFile.name}</p>}
+                          {!isUploading && confirming.map((file, index) => <p className="kyc-upload-pending" key={`${file.name}-${index}`}>{file.name}</p>)}
                           {k === "signature" &&
                             !data.files.some((x) => x.field === f.id) && (
                               <Signature
@@ -696,7 +743,7 @@ export default function Wizard({
                                 onSave={(file) => upload(f.id, file)}
                               />
                             )}
-                          <div className="kyc-upload">
+                          <div className="kyc-upload" aria-busy={isSavingFile}>
                             <input
                               id={f.id}
                               className="kyc-upload-input"
@@ -705,6 +752,7 @@ export default function Wizard({
                               multiple={fileRule(f.id).count > 1}
                               disabled={
                                 busy ||
+                                isSavingFile ||
                                 data.files.filter((x) => x.field === f.id)
                                   .length >= fileRule(f.id).count
                               }
@@ -729,13 +777,21 @@ export default function Wizard({
                                 for (const file of picked)
                                   await upload(f.id, file);
                               }}
-                              aria-describedby={`${f.id}-help${error ? ` ${f.id}-error` : ""}`}
+                              aria-describedby={`${f.id}-status ${f.id}-help${error ? ` ${f.id}-error` : ""}`}
                               aria-labelledby={`${f.id}-label`}
                               aria-invalid={!!error}
                             />
                             <label htmlFor={f.id} className="kyc-upload-trigger">
-                              {data.files.filter((x) => x.field === f.id).length >= fileRule(f.id).count
-                                ? t(language, "Archivos adjuntados", "Files attached")
+                              {isUploading
+                                ? t(language, "Subiendo archivo…", "Uploading file…")
+                                : confirming.length > 0
+                                  ? t(language, "Confirmando archivo…", "Confirming file…")
+                                : fieldFiles.length >= fileRule(f.id).count
+                                ? fileRule(f.id).count === 1
+                                  ? t(language, "Archivo adjuntado", "File attached")
+                                  : t(language, "Archivos adjuntados", "Files attached")
+                                : fieldFiles.length > 0
+                                  ? t(language, "Añadir otro archivo", "Add another file")
                                 : k === "signature"
                                   ? t(language, "Cargar imagen de firma", "Upload a signature image")
                                   : fileRule(f.id).count > 1
@@ -755,9 +811,10 @@ export default function Wizard({
                               .filter((x) => x.field === f.id)
                               .map((x) => (
                                 <li key={x._id}>
+                                  <FileText className="kyc-file-icon" size={20} aria-hidden="true" />
                                   <span>
-                                    {x.name} ({(x.size / 1024 ** 2).toFixed(1)}{" "}
-                                    MB)
+                                    <strong className="kyc-file-name">{x.name}</strong>
+                                    <span className="kyc-file-meta">{t(language, "Archivo guardado", "File saved")} · {(x.size / 1024 ** 2).toFixed(1)} MB</span>
                                   </span>
                                   <button
                                     className="kyc-link"

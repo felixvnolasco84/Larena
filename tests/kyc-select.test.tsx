@@ -50,10 +50,12 @@ describe("Shadcn Select integration", () => {
     choose("Tipo de comprador", "Persona moral");
     fireEvent.change(screen.getByLabelText("Unidad *"), { target: { value: "SELECT-TEST" } });
     fireEvent.change(screen.getByLabelText("Razón social"), { target: { value: "Empresa de prueba" } });
+    choose("País de la clave telefónica", "Estados Unidos (+1)");
+    fireEvent.change(screen.getByLabelText("Teléfono del comprador"), { target: { value: "213 373 4253" } });
     fireEvent.click(screen.getByRole("button", { name: "Crear enlace privado" }));
     await waitFor(() => expect(createInvitation).toHaveBeenCalledWith(expect.objectContaining({
       proyecto: "Las Arenas", origen_comprador: "Extranjera", tipo_persona: "Persona moral",
-      unidad: "SELECT-TEST", prefilled: expect.objectContaining({ pm_razon: "Empresa de prueba" }),
+      unidad: "SELECT-TEST", prefilled: expect.objectContaining({ pm_razon: "Empresa de prueba", pm_telefono: "+1 213 373 4253" }),
     })));
   });
 });

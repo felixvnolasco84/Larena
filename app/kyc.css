@@ -1,5 +1,20 @@
+@font-face {
+  font-family: "ES Klarheit Grotesk";
+  src: url("/fonts/ES-Klarheit-Grotesk-Variable.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ES Klarheit Grotesk";
+  src: url("/fonts/ES-Klarheit-Grotesk-Variable.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
 .kyc-shell,
 .kyc-select-content {
+  font-family: "ES Klarheit Grotesk", Arial, sans-serif;
   --kyc-text: #4a4a4a;
   --kyc-muted: #555;
   --kyc-surface: #f7f7f7;
@@ -236,6 +251,92 @@
   position: relative;
   width: 100%;
 }
+.kyc-document {
+  padding: 20px;
+  border: 1px solid var(--kyc-input);
+  border-radius: 10px;
+  background: white;
+}
+.kyc-document[data-upload-state="complete"] {
+  border-color: #8bb79b;
+  background: #f3f8f4;
+}
+.kyc-document[data-upload-state="uploading"] {
+  border-color: #6a88ae;
+}
+.kyc-document[data-upload-state="error"] {
+  border-color: #a42b26;
+}
+.kyc-document-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  color: var(--kyc-muted);
+}
+.kyc-document[data-upload-state="complete"] .kyc-document-status {
+  color: #25613d;
+}
+.kyc-document[data-upload-state="error"] .kyc-document-status {
+  color: #a42b26;
+}
+.kyc-document-status svg,
+.kyc-file-icon {
+  flex-shrink: 0;
+}
+.kyc-upload-pending {
+  overflow-wrap: anywhere;
+  margin: 0 0 12px;
+  font-size: 14px;
+}
+.kyc-document-progress {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.kyc-document-progress progress {
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--kyc-input);
+  accent-color: #25613d;
+}
+.kyc-document-progress progress::-webkit-progress-bar {
+  background: var(--kyc-input);
+}
+.kyc-document-progress progress::-webkit-progress-value {
+  background: #25613d;
+}
+.kyc-document-progress progress::-moz-progress-bar {
+  background: #25613d;
+}
+.kyc-file-name,
+.kyc-file-meta {
+  display: block;
+}
+.kyc-file-name {
+  font-weight: 500;
+}
+.kyc-file-meta {
+  font-size: 13px;
+  color: #25613d;
+  margin-top: 4px;
+}
+.kyc-document .kyc-files li {
+  border-bottom: 0;
+}
+.kyc-document[data-upload-state="complete"] .kyc-upload-input:disabled + .kyc-upload-trigger {
+  background: #e6f0e9;
+  border-color: #8bb79b;
+  color: #25613d;
+}
 .kyc-upload-input {
   position: absolute;
   inset: 0;
@@ -273,6 +374,26 @@
 }
 .kyc-input::placeholder {
   color: #555;
+}
+.kyc-phone {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr);
+  gap: 8px;
+  min-width: 0;
+}
+.kyc-phone > .kyc-input {
+  min-width: 0;
+}
+.kyc-phone > input.kyc-input {
+  height: 100%;
+}
+.kyc-select-content.kyc-phone-countries[data-state] {
+  width: min(320px, calc(100vw - 32px));
+}
+@media (max-width: 380px) {
+  .kyc-phone {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 textarea.kyc-input {
   min-height: 120px;
@@ -550,6 +671,15 @@ textarea.kyc-input {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4px 12px;
+  }
+  .kyc-document {
+    padding: 16px;
+  }
+  .kyc-files .kyc-file-icon {
+    display: none;
+  }
+  .kyc-files li > span {
+    grid-column: 1 / -1;
   }
   .kyc-files span {
     grid-column: 1 / -1;

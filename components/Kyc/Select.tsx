@@ -18,6 +18,8 @@ type KycSelectProps = {
   disabled?: boolean;
   compact?: boolean;
   placeholder?: string;
+  selectedLabel?: string;
+  contentClassName?: string;
   "aria-label"?: string;
   "aria-invalid"?: boolean;
   "aria-describedby"?: string;
@@ -32,6 +34,8 @@ export default function KycSelect({
   disabled,
   compact,
   placeholder,
+  selectedLabel,
+  contentClassName,
   ...aria
 }: KycSelectProps) {
   // Radix reserves an empty item value for clearing the selection. Keep the
@@ -55,14 +59,14 @@ export default function KycSelect({
         {...aria}
       >
         <SelectValue placeholder={placeholder}>
-          {options.find((option) => option.value === value)?.label}
+          {selectedLabel ?? options.find((option) => option.value === value)?.label}
         </SelectValue>
       </SelectTrigger>
       <SelectContent
         position="popper"
         sideOffset={4}
         collisionPadding={16}
-        className="kyc-select-content"
+        className={cn("kyc-select-content", contentClassName)}
       >
         {options.map((option) => (
           <SelectItem

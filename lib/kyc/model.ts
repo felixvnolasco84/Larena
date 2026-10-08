@@ -284,8 +284,8 @@ export function validate(
     )
       errors[f.id] = t(
         language,
-        "Incluye la clave de país, por ejemplo +52.",
-        "Include the country code, for example +1.",
+        "Ingresa un teléfono válido con su clave de país.",
+        "Enter a valid phone number with its country code.",
       );
     if (k === "radio" && !options(f.id, "es").some((o) => o.value === value))
       errors[f.id] = required;

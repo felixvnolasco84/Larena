@@ -4,6 +4,7 @@ import { useState } from "react";
 import { api } from "@/convex/_generated/api";
 import { PROJECTS, type Answers, type BuyerContext } from "@/lib/kyc/model";
 import KycSelect from "./Select";
+import PhoneInput from "./PhoneInput";
 export default function InvitationForm({ onClose }: { onClose: () => void }) {
   const create = useAction(api.kyc.createInvitation);
   const [busy, setBusy] = useState(false),
@@ -12,6 +13,7 @@ export default function InvitationForm({ onClose }: { onClose: () => void }) {
     [copied, setCopied] = useState(false),
     [project, setProject] = useState("Larena"),
     [origin, setOrigin] = useState("Mexicana"),
+    [phone, setPhone] = useState(""),
     [buyer, setBuyer] =
       useState<BuyerContext["tipo_persona"]>("Persona física");
   return (
@@ -171,13 +173,13 @@ export default function InvitationForm({ onClose }: { onClose: () => void }) {
             </div>
             <div>
               <label className="kyc-label" htmlFor="invite-phone">Teléfono del comprador</label>
-              <input
+              <PhoneInput
                 id="invite-phone"
-                className="kyc-input"
                 name="phone"
-                type="tel"
-                placeholder="+52…"
-                maxLength={30}
+                value={phone}
+                onChange={setPhone}
+                language="es"
+                disabled={busy}
               />
             </div>
             <button type="submit" className="kyc-button">
